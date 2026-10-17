@@ -1,174 +1,103 @@
-# MosaicGym — an image workspace for multi-image RL agents
+# Mosaic
 
-MosaicGym trains and evaluates vision-language agents that reason by
-**re-representing images**: the model works inside an image *workspace* with ten
-deterministic tools (crop, rotate, flip, resize, collage, overlay, per-pixel
-difference, homography / affine transforms, coordinate grid), interleaving
-chain-of-thought with tool calls and committing a final `<answer>`.
+### Rethinking Multi-Image Re-Representation in Multi-Image Understanding
 
-The repo contains three things:
+**Gengyuan Zhang · Xiao Han · Xinyu Xie · Tong Liu · Volker Tresp**
 
-| Part | Where | What |
-|---|---|---|
-| **Environment** | `src/mosaic_gym/` | the toolbox (validators, deterministic execution, image registry), the agent protocol (prompting / parsing), and the evaluation runner |
-| **Training** | `rl/` | GRPO training on top of a vendored [verl](https://github.com/volcengine/verl) v0.7.1 (our tool/agent-loop/reward adapters live in `src/mosaic_gym/rl/`, verl itself is unmodified vendor code) |
-| **Data prep** | `scripts/data_prep/` | converters that turn each public benchmark (BLINK, MMIU, Mantis-Eval, M4Bench, MuirBench, …) into one canonical format |
+[Paper](https://arxiv.org/abs/2609.39363) · [MosaicAgent-8B](https://huggingface.co/gengyuanmax/MosaicAgent-8B) · [MosaicBench](https://huggingface.co/datasets/gengyuanmax/MosaicBench) · [Usage guide](docs/usage.md)
 
-Reward is deliberately minimal: `score = accuracy + format` (both binary; see
-`src/mosaic_gym/rl/reward.py`). No tool-use term — the accuracy gradient alone
-decides whether the agent uses the workspace.
+Mosaic gives vision-language models an image workspace: they can crop, rotate, align, combine and compare images, then use the resulting visual evidence to answer a question. MosaicAgent-8B learns to use this workspace through reinforcement learning with accuracy and format rewards.
 
----
+## Release
 
-## 1. Environment setup
+| Resource | Description | Access |
+| --- | --- | --- |
+| MosaicGym | Image workspace, ten tools, agent protocol and evaluation runner | This repository |
+| MosaicAgent-8B | Qwen3-VL-based model trained with image tools | [Hugging Face](https://huggingface.co/gengyuanmax/MosaicAgent-8B) |
+| MosaicLLM-8B | No-tool, single-turn comparison model | Upload in progress |
+| MosaicBench | 560 evaluation samples across 28 tasks, with questions, ordered candidate answers and ground truth | [Hugging Face](https://huggingface.co/datasets/gengyuanmax/MosaicBench) |
 
-### Option A: pip / uv (evaluation only)
+MosaicBench distributes 780 images covering 540 samples. The 20 COCO-derived samples retain source links and filenames but do not include images. The complete benchmark definition and the subset runnable with bundled images are distinct. See the dataset card for source-specific licenses and acquisition details.
 
-```bash
-# Python >= 3.10
-pip install -e .            # or: uv sync
-```
+Training adapters are included; training data is not part of this release.
 
-This installs the evaluation side (toolbox + runner). Training additionally
-needs the verl container (Option B/C).
+## Quick start
 
-### Option B: Docker (evaluation service)
+### 1. Install
 
 ```bash
-docker build -t mosaic-gym .
+git clone https://github.com/gengyuanmax/Mosaic.git
+cd Mosaic
+python -m pip install -e .
+python -m pip install huggingface_hub
 ```
 
-### Option C: Apptainer container (training)
+Python 3.10 or newer is required. Model serving needs a separate Qwen3-VL-compatible environment and sufficient GPU memory.
 
-Training runs inside the official verl v0.7.1 image (torch 2.10 + cu129,
-SGLang 0.5.9 engine):
+### 2. Prepare MosaicBench
 
 ```bash
-bash rl/scripts/build_container.sh          # builds rl/containers/verl-v0.7.1-sgl059.sif
-rl/scripts/verl.sh python -c "import verl"  # smoke-check the wrapper
+hf download gengyuanmax/MosaicBench --repo-type dataset --local-dir data/MosaicBench
+python scripts/data_prep/prepare_mosaicbench.py data/MosaicBench data/mosaicbench
 ```
 
-`rl/scripts/verl.sh` binds the repo into the container and puts the vendored
-`rl/verl` plus `src/` on `PYTHONPATH`. Override `SIF=` / `WS=` if your image or
-data live elsewhere.
+This preserves prompts, choices, answers and image order, prepares the 540 samples with bundled images, and writes a coverage report for the 20 excluded samples. It does not download COCO images or change the benchmark split.
 
-## 2. Data preparation
+### 3. Serve the model and run an example
 
-Every dataset is converted once into the same canonical layout:
-
-```
-data/<name>/
-├── datasets/<task>.json     # one file per sub-task: sample_id, prompt, images[], target
-└── images.tar               # all images in one tar (the runner auto-extracts
-                             #   to local /tmp — friendly to file-count quotas)
-```
-
-Converters (see each file's header for the exact source it downloads):
+In a compatible vLLM environment:
 
 ```bash
-python scripts/data_prep/prepare_hf_benchmarks.py      # BLINK, M4Bench, ... from HF hub
-python scripts/data_prep/prepare_mantis_canonical.py   # Mantis-Eval
-python scripts/data_prep/prepare_mmiu_canonical.py     # MMIU (json)
-python scripts/data_prep/prepare_mmiu_tar.py           # MMIU (images.tar)
-python scripts/data_prep/prepare_extra_benchmarks.py   # MuirBench, QBench2, ...
+vllm serve gengyuanmax/MosaicAgent-8B --dtype bfloat16 --port 8000
 ```
 
-For RL training, additionally convert the canonical training split into verl's
-chat-jsonl format:
+Then, from this repository:
 
 ```bash
-python rl/data_prep/canonical_to_verl.py --help
+mosaic-run --dataset mosaicbench --env tool \
+  --model-name gengyuanmax/MosaicAgent-8B \
+  --endpoint http://localhost:8000/v1 --max-samples 1
 ```
 
-## 3. Running the main experiment (evaluation)
+Set the serving context length and image limits for your hardware and workload. The explicit BF16 setting matches the stored checkpoint tensors. The runner executes model-generated tool calls and returns the resulting images to the model; plain text generation alone does not execute the workspace.
 
-Serve the model with any OpenAI-compatible server, e.g. vLLM:
+Outputs are written to `outputs/mosaicbench/record/`. Remove `--max-samples 1` to run the prepared subset; report its coverage when presenting results.
+
+## What is included
+
+- `src/mosaic_gym/toolbox/`: ten image operations and image-state management.
+- `src/mosaic_gym/agent/`: prompting, tool-call parsing and conversation management.
+- `src/mosaic_gym/runner/`: dataset loading, multi-turn evaluation and scoring.
+- `src/mosaic_gym/rl/` and `rl/`: training adapters and vendored verl.
+- `scripts/data_prep/`: benchmark converters, including the HF MosaicBench bridge.
+
+See the [usage guide](docs/usage.md) for configuration, other benchmarks, containers and training-code setup.
+
+## Validation
+
+Both checkpoint candidates passed real BF16 loading and two-image generation on an NVIDIA RTX A6000. MosaicAgent completed an actual crop call, received the generated image and returned a final answer. These limited functional checks are not a reproduction of the paper’s evaluation results. Hugging Face download verification is tracked separately from the initial checkpoint checks.
+
+For CPU protocol checks:
 
 ```bash
-vllm serve Qwen/Qwen3-VL-8B-Instruct --port 8000 \
-  --max-model-len 98304 --limit-mm-per-prompt '{"image": 64}'
+python -m pip install -e '.[dev]'
+python -m pytest tests
 ```
 
-Then run the agent over a benchmark:
+## Citation
 
-```bash
-# Tool workspace (Visual CoT) — the main setting
-./scripts/run.sh --dataset blink --env tool
-
-# Text-only chain-of-thought baseline (no tools)
-python -m mosaic_gym.runner.inference \
-  --config configs/default_vanilla.yaml --dataset blink --env vanilla
-```
-
-Outputs land in `outputs/<run>/record/<task>.jsonl`, one line per sample with
-the full multi-turn trace (raw responses, tool calls, tool results, reward).
-Accuracy = mean of `reward >= 1`. Runs are resumable: re-running the same
-command skips already-recorded samples.
-
-Sampling defaults (temperature 0.7 / top_p 0.8 / top_k 20, model-card values)
-and the serving profile live in `configs/default.yaml` /
-`configs/default_vanilla.yaml`; the toolset can be restricted per run
-(e.g. `--tools crop`).
-
-## 4. Training
-
-One script, one reward:
-
-```bash
-# inside the container; 1 node x 4 GPUs (H100-class)
-rl/scripts/verl.sh bash rl/example/train.sh
-```
-
-Key hyper-parameters (all in `rl/example/train.sh`): GRPO with group
-size n=8, no KL/entropy terms, lr 1e-6, batch 32 / mini-batch 16 /
-micro-batch 1, ppo_epochs 2, async vLLM rollout with the multi-turn tool agent
-loop (max 10 assistant turns), prompt/response budgets 16384/20480 within a
-36864-token context, up to 64 images per rollout. Checkpoints are written to
-`rl/train/outputs/<experiment>/global_step_N/` every 10 steps; merge FSDP
-shards to a HF checkpoint with verl's `verl.model_merger`.
-
-The agent loop and toolbox bridge that verl loads are configured in
-`rl/configs/agent_loop/mosaic_agent_loop.yaml` and
-`rl/configs/tool_config/mosaic_tools.yaml` (regenerate the latter with
-`rl/scripts/gen_tool_config.py` after changing the toolset).
-
-## 5. Repository layout
-
-```
-src/mosaic_gym/
-├── toolbox/          the ten image tools + validator + deterministic executor
-├── agent/            system prompts, reply parsing (<tool_call>/<answer>)
-├── runner/           evaluation runner, dataset loading, scoring
-├── rl/               verl adapters: agent loop, tool bridge, reward (acc+fmt)
-├── config/           typed run configuration
-└── contracts.py      shared dataclasses (ToolCall, ToolResult, ...)
-rl/
-├── verl/             vendored verl v0.7.1 (unmodified)
-├── example/train.sh
-├── scripts/          container build + run wrappers, tool-config generator
-├── configs/          agent-loop / tool-config YAML
-└── data_prep/        canonical -> verl jsonl
-scripts/
-├── run.sh            one-line eval entry point
-└── data_prep/        per-benchmark converters -> canonical format
-configs/              default.yaml (tool) / default_vanilla.yaml (no-tool)
+```bibtex
+@misc{zhang2026mosaic,
+  title={Rethinking Multi-Image Re-Representation in Multi-Image Understanding},
+  author={Gengyuan Zhang and Xiao Han and Xinyu Xie and Tong Liu and Volker Tresp},
+  year={2026},
+  eprint={2609.39363},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2609.39363}
+}
 ```
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
-
-## MosaicBench on Hugging Face
-
-[Dataset and source-specific licenses](https://huggingface.co/datasets/gengyuanmax/MosaicBench) · [Paper](https://arxiv.org/abs/2609.39363)
-
-```bash
-pip install huggingface_hub
-hf download gengyuanmax/MosaicBench --repo-type dataset --local-dir data/MosaicBench
-python scripts/data_prep/prepare_mosaicbench.py data/MosaicBench data/mosaicbench
-mosaic-run --dataset mosaicbench --max-samples 1 --endpoint http://localhost:8000/v1
-```
-
-The converter keeps the original prompts, ordered choices and image references. It prepares 540 samples with distributed images and writes a coverage report listing the 20 COCO samples without images. These 540 samples are a subset, not the complete 560-sample benchmark. COCO sources and acquisition information remain in the dataset repository. No images are downloaded by the converter.
-
-A local protocol test checks the runner using a simulated model endpoint; it does not measure model quality. GPU training, checkpoint inference and reproduction of paper results require separate validation.
+Mosaic code uses the [MIT license](LICENSE). Vendored verl retains its [Apache 2.0 license](rl/verl/LICENSE) and attribution. Model and dataset licenses are documented in their respective Hugging Face repositories.
