@@ -15,7 +15,7 @@ Mosaic gives vision-language models an image workspace: they can crop, rotate, a
 | MosaicGym | Image workspace, ten tools, agent protocol and evaluation runner | This repository |
 | MosaicAgent-8B | Qwen3-VL-based model trained with image tools | [Hugging Face](https://huggingface.co/gengyuanmax/MosaicAgent-8B) |
 | MosaicLLM-8B | No-tool, single-turn comparison model | Upload in progress |
-| MosaicBench | 560 evaluation samples across 28 tasks, with questions, ordered candidate answers and ground truth | [Hugging Face](https://huggingface.co/datasets/gengyuanmax/MosaicBench) |
+| MosaicBench | 32 task types described in the paper; public download includes 560 evaluation samples with questions, ordered candidate answers and ground truth | [Hugging Face](https://huggingface.co/datasets/gengyuanmax/MosaicBench) |
 
 MosaicBench distributes 780 images covering 540 samples. The 20 COCO-derived samples retain source links and filenames but do not include images. The complete benchmark definition and the subset runnable with bundled images are distinct. See the dataset card for source-specific licenses and acquisition details.
 
