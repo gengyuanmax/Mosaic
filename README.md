@@ -4,7 +4,7 @@
 
 **Gengyuan Zhang · Xiao Han · Xinyu Xie · Tong Liu · Volker Tresp**
 
-[Paper](https://arxiv.org/abs/2609.39363) · [MosaicAgent-8B](https://huggingface.co/gengyuanmax/MosaicAgent-8B) · [MosaicBench](https://huggingface.co/datasets/gengyuanmax/MosaicBench) · [Usage guide](docs/usage.md)
+[Project page](https://gengyuanmax.github.io/Mosaic/) · [Paper](https://arxiv.org/abs/2609.39363) · [MosaicAgent-8B](https://huggingface.co/gengyuanmax/MosaicAgent-8B) · [MosaicBench](https://huggingface.co/datasets/gengyuanmax/MosaicBench) · [Usage guide](docs/usage.md)
 
 Mosaic gives vision-language models an image workspace: they can crop, rotate, align, combine and compare images, then use the resulting visual evidence to answer a question. MosaicAgent-8B learns to use this workspace through reinforcement learning with accuracy and format rewards.
 
