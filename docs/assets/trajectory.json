@@ -1,0 +1,20 @@
+{
+  "steps": [
+    {
+      "title": "Inspect image 1",
+      "description": "The model receives two images (image 1 shown here) and an instruction to inspect the upper-left quarter of image 1.",
+      "image": "input-1.png"
+    },
+    {
+      "title": "A real crop call",
+      "description": "MosaicAgent selects crop with x1=0, y1=0, x2=0.5, y2=0.5. The workspace returns a new image without changing the original.",
+      "image": "crop.png"
+    },
+    {
+      "title": "Inspect, then answer",
+      "description": "The next model request contains all three images. MosaicAgent finishes with the answer: rotated.",
+      "image": "input-2.png"
+    }
+  ],
+  "source": "A recorded checkpoint validation run. The crop instruction is explicit; this is not an unprompted benchmark success or an accuracy claim."
+}
