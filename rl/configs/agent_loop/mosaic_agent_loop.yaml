@@ -1,0 +1,6 @@
+# Registers our custom agent loop with verl WITHOUT editing the vendored verl tree.
+# Referenced by actor_rollout_ref.rollout.agent.agent_loop_config_path; verl loads
+# this list and registers each entry by `name` (agent_loop.py: _agent_loop_registry).
+# Select it with actor_rollout_ref.rollout.agent.default_agent_loop=mosaic_tool_agent.
+- name: mosaic_tool_agent
+  _target_: mosaic_gym.rl.agent_loop.MosaicToolAgentLoop

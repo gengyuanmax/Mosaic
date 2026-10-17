@@ -1,0 +1,48 @@
+# Unified run config — one file for every benchmark.
+#
+# Select the dataset at run time; paths follow the data/<NAME>/ convention:
+#   python -m mosaic_gym.runner.inference --dataset blink
+#   DATASET=muirbench ./scripts/run.sh
+# Model / endpoint / sampling / toolbox are shared across datasets; override
+# per-run via CLI flags or env vars (see scripts/run.sh).
+
+data:
+  dataset_dir: null        # set via --dataset NAME -> data/<NAME>/datasets
+  base_dir: null           #                        -> data/<NAME>
+  max_samples: null
+  tasks: []
+
+model:
+  name: Qwen/Qwen3-VL-8B-Instruct
+  endpoint: http://127.0.0.1:8000/v1      # any OpenAI-compatible server (e.g. vLLM)
+  api_key_env: OPENAI_API_KEY
+  serving:                                # profile used when you serve the model
+    max_model_len: 98304                  # a40 (48GB) fits this; covers image-heavy retrieval tasks
+    gpu_memory_utilization: 0.90
+    port: 8000
+
+agent:
+  sampling:                               # Qwen3-VL-8B model-card defaults
+    temperature: 0.7
+    top_p: 0.8
+    top_k: 20
+    repetition_penalty: 1.0
+    presence_penalty: 1.5
+    frequency_penalty: 0.0
+    max_tokens: 16384
+  extra_body_keys:                        # non-OpenAI knobs -> vLLM via extra_body
+    - top_k
+    - repetition_penalty
+    - presence_penalty
+    - frequency_penalty
+  timeout_sec: null                       # no per-request timeout
+
+runner:
+  env: tool                               # tool = agent loop with tools | vanilla = single call, no tools
+  max_steps: 10                           # tool-call turns per episode
+  out_dir: inference_res                   # record/<task>.jsonl (+ messages/ with save_messages)
+  save_messages: false
+  resume: true
+
+toolbox:
+  description_mode: baseline   # baseline | prompting

@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.venv/
+
+# Tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Data, model outputs, run artifacts
+/data/
+outputs/
+*.log
+wandb/
+rl/train/logs/
+rl/train/outputs/
+slurm_logs/
+
+# Containers (multi-GB images) — build locally with rl/scripts/build_container.sh
+rl/containers/
+*.sif
+
+# Site-specific SLURM wrappers: the .sh entry points are the portable surface
+*.sbatch
+
+# Per-run eval configs are generated; only the two defaults are source
+configs/*
+!configs/default.yaml
+!configs/default_vanilla.yaml
+
+# Secrets — never commit
+wandb.env
