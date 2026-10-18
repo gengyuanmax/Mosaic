@@ -5,7 +5,7 @@
 <p><strong>Rethinking Multi-Image Re-Representation in Multi-Image Understanding</strong></p>
 <p>
   <a href="https://gengyuanmax.github.io/">Gengyuan Zhang</a> ·
-  <a href="https://scholar.google.com/citations?view_op=list_works&amp;hl=de&amp;user=4GSpJ7IAAAAJ">Xiao Han</a> ·
+  <a href="https://github.com/77Han329">Xiao Han</a> ·
   <a href="https://scholar.google.com/citations?hl=en&amp;user=7coYsJsAAAAJ">Xinyu Xie</a> ·
   <a href="https://tongliu-github.github.io/">Tong Liu</a> ·
   <a href="https://www.dbs.ifi.lmu.de/~tresp/">Volker Tresp</a>
