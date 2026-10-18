@@ -4,7 +4,7 @@
 
 **Gengyuan Zhang · Xiao Han · Xinyu Xie · Tong Liu · Volker Tresp**
 
-[Project page](https://gengyuanmax.github.io/Mosaic/) · [Paper](https://arxiv.org/abs/2609.39363) · [MosaicAgent-8B](https://huggingface.co/gengyuanmax/MosaicAgent-8B) · [MosaicBench](https://huggingface.co/datasets/gengyuanmax/MosaicBench) · [Usage guide](docs/usage.md)
+[Project page](https://gengyuanmax.github.io/Mosaic/) · [Paper](https://arxiv.org/abs/2609.39363) · [MosaicAgent-8B](https://huggingface.co/gengyuanmax/MosaicAgent-8B) · [MosaicBench](https://huggingface.co/datasets/gengyuanmax/MosaicBench) · [Toolbox Playground](https://huggingface.co/spaces/gengyuanmax/MosaicGym) · [Usage guide](docs/usage.md)
 
 Mosaic gives vision-language models an image workspace: they can crop, rotate, align, combine and compare images, then use the resulting visual evidence to answer a question. MosaicAgent-8B learns to use this workspace through reinforcement learning with accuracy and format rewards.
 
@@ -70,6 +70,8 @@ Outputs are written to `outputs/mosaicbench/record/`. Remove `--max-samples 1` t
 - `src/mosaic_gym/runner/`: dataset loading, multi-turn evaluation and scoring.
 - `src/mosaic_gym/rl/` and `rl/`: training adapters and vendored verl.
 - `scripts/data_prep/`: benchmark converters, including the HF MosaicBench bridge.
+- `docs/`: project page and recorded trajectory library.
+- `demo/`: [native Toolbox playground service and local startup instructions](demo/README.md).
 
 See the [usage guide](docs/usage.md) for configuration, other benchmarks, containers and training-code setup.
 

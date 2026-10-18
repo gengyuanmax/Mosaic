@@ -1,8 +1,8 @@
-# Preview assets
+# Website assets
 
 `assets/mosaic-logo.png` is the project logo supplied by the user. The original PNG bytes are preserved and used for the site header and favicon.
 
-The abstract is reproduced from the paper source used for this preview, with the final code/data release sentence omitted at the user's request. LaTeX project-name macros are expanded and the original emphasis is retained. Its body uses the system Georgia serif font, with Times New Roman and serif fallbacks.
+The abstract is reproduced from the paper source used for this website, with the final code/data release sentence omitted at the user's request. LaTeX project-name macros are expanded and the original emphasis is retained. Its body uses the system Georgia serif font, with Times New Roman and serif fallbacks.
 
 Inter is self-hosted from Google Fonts and distributed under the SIL Open Font License; see `assets/fonts/OFL.txt`.
 

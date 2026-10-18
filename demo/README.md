@@ -11,7 +11,8 @@ python -m venv .venv-demo
 ```
 
 Open `http://127.0.0.1:8767/#alpha-canvas`. The local page uses the local API;
-the public endpoint is configured through the page’s `data-toolbox-api` attribute.
+the public page connects to the [MosaicGym CPU Space](https://huggingface.co/spaces/gengyuanmax/MosaicGym).
+Its API endpoint is configured through the page’s `data-toolbox-api` attribute.
 The website contains 796 recorded trajectories loaded individually; these
 remain available independently of the Python service.
 

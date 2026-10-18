@@ -29,7 +29,9 @@ This server serves the preview and `/api/gym/` on the same localhost origin. It
 accepts only the provided example IDs and image IDs belonging to a session; it
 has no arbitrary-file or upload endpoint. GitHub Pages hosts the static page and
 trajectory assets. Online tool execution requires a separately deployed Python
-service configured with `data-toolbox-api`; localhost uses its own service. A
+service configured with `data-toolbox-api`. The project page uses
+[the MosaicGym CPU Space](https://huggingface.co/spaces/gengyuanmax/MosaicGym);
+localhost uses its own service. A
 sleeping CPU Space may need time to start.
 See `demo/README.md` in the repository for deployment and recovery instructions.
 Recorded-trajectory replay remains independent of the playground service.
