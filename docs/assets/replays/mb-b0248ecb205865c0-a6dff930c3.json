@@ -1,0 +1,164 @@
+{
+  "public_id": "mb-b0248ecb205865c0",
+  "episode_id": "mb-b0248ecb205865c0-a6dff930c3",
+  "task": "Rotated Text OCR",
+  "question": "The figure is a scanned document page that has been rotated counterclockwise by an unknown angle. Rotating the figure further counterclockwise by which of the following angles (in degrees) restores the page to its normal upright reading orientation?\n(A) 276\n(B) 96\n(C) 308\n(D) None of the above restores it.\n\nAnswer with only the correct option letter.",
+  "ground_truth": "B",
+  "final_answer": "B",
+  "termination_reason": "final_answer",
+  "num_steps": 4,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image [img1] shows a scanned document page that has been rotated counterclockwise by some unknown angle. The text is slanted to the left, indicating a counterclockwise rotation. We need to determine by how much more it should be rotated counterclockwise to return it to its normal orientation.\n\nTo do this, we can use the `rotate` tool to test each of the given options and see which one aligns the text properly. Let's start by rotating the image by 276 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 276, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 276
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating the image by 276 degrees, the text is still not aligned properly. It appears that the rotation was too much, as the text is now rotated in the opposite direction (clockwise) compared to the original. Let's try the next option, which is 96 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 96, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 96
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating the image by 96 degrees, the text appears to be in its normal, upright orientation. The title, author, and other text are aligned as they should be in a standard document. This seems to be the correct rotation.\n\nTo be sure, I'll check the third option, 308 degrees, just to confirm that 96 degrees is indeed correct.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 308, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 308
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating the image by 308 degrees, the text is rotated in the opposite direction again, similar to the 276-degree rotation. The text is now oriented differently than in the original image and is not in its normal upright position.\n\nTherefore, after testing all three options, it is clear that rotating the image by 96 degrees restores it to its normal orientation.\n\nThe correct answer is B.\n\n<answer> B </answer>",
+      "tool_calls": null,
+      "final_answer": "B",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/f1c60bf9b6ded2e4013d9f3e.webp",
+      "full_file": "replays/images/f1c60bf9b6ded2e4013d9f3e-zoom.webp",
+      "thumbnail": "replays/images/f1c60bf9b6ded2e4013d9f3e-thumb.webp",
+      "width": 852,
+      "height": 692,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/2424666d31978e1e735dcecb.webp",
+      "full_file": "replays/images/2424666d31978e1e735dcecb-zoom.webp",
+      "thumbnail": "replays/images/2424666d31978e1e735dcecb-thumb.webp",
+      "width": 778,
+      "height": 920,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/39ed640ac183468ceabf0d24.webp",
+      "full_file": "replays/images/39ed640ac183468ceabf0d24-zoom.webp",
+      "thumbnail": "replays/images/39ed640ac183468ceabf0d24-thumb.webp",
+      "width": 778,
+      "height": 920,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/b816a029541fa785a261519f.webp",
+      "full_file": "replays/images/b816a029541fa785a261519f-zoom.webp",
+      "thumbnail": "replays/images/b816a029541fa785a261519f-thumb.webp",
+      "width": 1070,
+      "height": 1098,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "PubLayNet",
+      "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+      "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "attribution": null,
+      "modifications": null,
+      "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+    }
+  ]
+}

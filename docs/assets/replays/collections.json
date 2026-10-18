@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "default_collection": "mosaicbench-mosaicagent-8b-visual",
+  "collections": [
+    {
+      "id": "mosaicbench-mosaicagent-8b-visual",
+      "dataset": {
+        "id": "mosaicbench",
+        "label": "MosaicBench"
+      },
+      "model": {
+        "id": "mosaicagent-8b",
+        "label": "MosaicAgent-8B",
+        "role_label": "MosaicAgent"
+      },
+      "setting": {
+        "id": "visual",
+        "label": "Visual CoT"
+      },
+      "environment": {
+        "label": "MosaicGym"
+      },
+      "index": "assets/replays/index.json",
+      "attribution": "assets/replays/ATTRIBUTION.md",
+      "license": "assets/replays/LICENSE.md"
+    }
+  ]
+}

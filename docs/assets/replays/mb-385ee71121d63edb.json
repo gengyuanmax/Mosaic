@@ -1,0 +1,95 @@
+{
+  "public_id": "mb-385ee71121d63edb",
+  "task": "Assembly Orientation Alignment",
+  "question": "Figure 1 shows a part lying on the workbench; figure 2 shows the orientation the assembly instructions require for the SAME part. Rotating figure 1 counterclockwise by which angle brings it into the required orientation?\n(A) 180°\n(B) 240°\n(C) 330°\n(D) 300°\n\nAnswer with only the correct option letter.",
+  "ground_truth": "A",
+  "final_answer": "A",
+  "termination_reason": "final_answer",
+  "num_steps": 2,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "To determine the angle by which [img1] needs to be rotated counterclockwise to match [img2], I need to analyze the orientation of the capsule in both images.\n\nIn [img1], the black end of the capsule is on the right, and the orange end is on the left. The number \"500\" is visible on the orange part, and it is oriented such that the \"5\" is on the left and the \"00\" is on the right.\n\nIn [img2], the black end is on the left, and the orange end is on the right. The number \"500\" is now oriented such that the \"5\" is on the right and the \"00\" is on the left.\n\nTo find the angle, I can rotate [img1] and compare it with [img2] to find the match. Since the question asks for a counterclockwise rotation, I'll try rotating [img1] by the given options and see which one aligns it with [img2].\n\nLet's start by rotating [img1] by 180 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 180, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 180
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating [img1] by 180 degrees, the resulting image [img3] shows the capsule with the black end on the left and the orange end on the right. The number \"500\" is now oriented with the \"5\" on the right and the \"00\" on the left.\n\nThis is the same as [img2]. Therefore, the correct answer is (A) 180°.\n\n<answer> A </answer>",
+      "tool_calls": null,
+      "final_answer": "A",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/60c18f9b03019f819c12b7ce.webp",
+      "full_file": "replays/images/60c18f9b03019f819c12b7ce-zoom.webp",
+      "thumbnail": "replays/images/60c18f9b03019f819c12b7ce-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/33a59b068cce8557e9cafd56.webp",
+      "full_file": "replays/images/33a59b068cce8557e9cafd56-zoom.webp",
+      "thumbnail": "replays/images/33a59b068cce8557e9cafd56-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/33a59b068cce8557e9cafd56.webp",
+      "full_file": "replays/images/33a59b068cce8557e9cafd56-zoom.webp",
+      "thumbnail": "replays/images/33a59b068cce8557e9cafd56-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "MVTec AD",
+      "source_url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+      "source_license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "MVTec Software GmbH",
+      "modifications": "Reference image and counterclockwise rotated image with sampled background fill.",
+      "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+    }
+  ],
+  "episode_id": "mb-385ee71121d63edb"
+}

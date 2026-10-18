@@ -1,0 +1,256 @@
+{
+  "public_id": "mb-fda49c6ba06f1ac7",
+  "episode_id": "mb-fda49c6ba06f1ac7-26774803fa",
+  "task": "Template Rotation Grasp",
+  "question": "Figure 1 is the live camera view of an object; figure 2 is its canonical template from the grasp database. The object in figure 1 equals the template rotated counterclockwise by one of the following angles. Executing the candidates, which rotation is it?\n(A) 210°\n(B) 135°\n(C) 180°\n(D) 60°\n\nAnswer with only the correct option letter.",
+  "ground_truth": "A",
+  "final_answer": "A",
+  "termination_reason": "final_answer",
+  "num_steps": 6,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "To determine the correct rotation angle, I need to compare [img1] with [img2] and find the angle by which [img1] needs to be rotated counterclockwise to match [img2].\n\nFirst, I'll draw a coordinate grid over [img1] to help visualize the rotation.\n\n<tool_call>\n{\"name\": \"draw_normalized_coordinate_grid\", \"arguments\": {\"grid_rows\": 4, \"grid_cols\": 4, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "draw_normalized_coordinate_grid",
+          "arguments": {
+            "grid_rows": 4,
+            "grid_cols": 4
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "draw_normalized_coordinate_grid",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "Now that I have the grid overlay on [img1], I can see the orientation of the \"FF\" pattern. The \"F\" on the left is pointing more towards the top-left in [img1], while in [img2] it's pointing more directly to the left.\n\nTo find the correct rotation, I can try rotating [img1] by each of the given angles and compare the result with [img2]. I'll start with the most likely candidate.\n\nLet's try rotating [img1] by 180 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 180, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 180
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating [img1] by 180 degrees, the \"FF\" pattern is now upside down compared to [img2]. The \"F\" on the left is now pointing towards the bottom-left, and the \"F\" on the right is pointing towards the bottom-right. This does not match [img2], so 180 degrees is not correct.\n\nLet's try the next candidate, 135 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 135, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 135
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0005"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating [img1] by 135 degrees, the \"FF\" pattern is rotated further. The \"F\" on the left is now pointing more towards the top, and the \"F\" on the right is pointing more towards the bottom. This does not match [img2] either.\n\nLet's try the next candidate, 60 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 60, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 60
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0006"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "model_raw_response": "After rotating [img1] by 60 degrees, the \"FF\" pattern is rotated slightly. The \"F\" on the left is now pointing more towards the top-left, and the \"F\" on the right is pointing more towards the top-right. This is closer to [img2] than the previous rotations, but still not a perfect match.\n\nFinally, let's try the last candidate, 210 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 210, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 210
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0007"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "model_raw_response": "After rotating [img1] by 210 degrees, the \"FF\" pattern aligns closely with [img2]. The \"F\" on the left is now pointing to the left, and the \"F\" on the right is pointing to the right, matching [img2]. The orientation of the \"FF\" in [img7] is the same as in [img2].\n\nTherefore, the correct answer is (A) 210°.\n\n<answer> A </answer>",
+      "tool_calls": null,
+      "final_answer": "A",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/3daa44d39a9b5a2f8c0f433b.webp",
+      "full_file": "replays/images/3daa44d39a9b5a2f8c0f433b-zoom.webp",
+      "thumbnail": "replays/images/3daa44d39a9b5a2f8c0f433b-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/d83b017a7eaf721a8f5952e2.webp",
+      "full_file": "replays/images/d83b017a7eaf721a8f5952e2-zoom.webp",
+      "thumbnail": "replays/images/d83b017a7eaf721a8f5952e2-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "draw_normalized_coordinate_grid",
+      "file": "replays/images/b60f49e50c1a07f93c478d14.webp",
+      "full_file": "replays/images/b60f49e50c1a07f93c478d14-zoom.webp",
+      "thumbnail": "replays/images/b60f49e50c1a07f93c478d14-thumb.webp",
+      "width": 834,
+      "height": 834,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/76d9f13423ad6c9e098899fc.webp",
+      "full_file": "replays/images/76d9f13423ad6c9e098899fc-zoom.webp",
+      "thumbnail": "replays/images/76d9f13423ad6c9e098899fc-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0005",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/bbb14818fea4d4cf860c9c73.webp",
+      "full_file": "replays/images/bbb14818fea4d4cf860c9c73-zoom.webp",
+      "thumbnail": "replays/images/bbb14818fea4d4cf860c9c73-thumb.webp",
+      "width": 1132,
+      "height": 1132,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0006",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/27616c0c84df9b45ed966391.webp",
+      "full_file": "replays/images/27616c0c84df9b45ed966391-zoom.webp",
+      "thumbnail": "replays/images/27616c0c84df9b45ed966391-thumb.webp",
+      "width": 1094,
+      "height": 1094,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0007",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/37ba9855ea12c8902ef4ea16.webp",
+      "full_file": "replays/images/37ba9855ea12c8902ef4ea16-zoom.webp",
+      "thumbnail": "replays/images/37ba9855ea12c8902ef4ea16-thumb.webp",
+      "width": 1094,
+      "height": 1094,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "MVTec AD",
+      "source_url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+      "source_license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "MVTec Software GmbH",
+      "modifications": "Reference image and counterclockwise rotated image with sampled background fill.",
+      "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+    }
+  ]
+}

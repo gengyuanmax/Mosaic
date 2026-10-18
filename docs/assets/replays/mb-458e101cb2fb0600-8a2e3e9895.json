@@ -1,0 +1,175 @@
+{
+  "public_id": "mb-458e101cb2fb0600",
+  "episode_id": "mb-458e101cb2fb0600-8a2e3e9895",
+  "task": "Assembly Orientation Alignment",
+  "question": "Figure 1 shows a part lying on the workbench; figure 2 shows the orientation the assembly instructions require for the SAME part. Rotating figure 1 counterclockwise by which angle brings it into the required orientation?\n(A) 240°\n(B) 30°\n(C) 150°\n(D) 300°\n\nAnswer with only the correct option letter.",
+  "ground_truth": "B",
+  "final_answer": "B",
+  "termination_reason": "final_answer",
+  "num_steps": 4,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "To determine the angle by which [img1] needs to be rotated counterclockwise to match [img2], I need to analyze the orientation of the capsule in both images.\n\nIn [img2], the capsule is oriented horizontally, with the black end on the left and the orange end on the right. The number \"500\" is clearly visible and aligned with the horizontal axis.\n\nIn [img1], the capsule is rotated such that it is diagonal. To find the angle, I can use a tool to rotate [img1] and compare it with [img2] to find the correct angle.\n\nLet's try rotating [img1] by 150 degrees counterclockwise and see if it matches [img2].\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 150, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 150
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating [img1] by 150 degrees counterclockwise, the capsule is now oriented with the orange end pointing upwards and the black end downwards. The number \"500\" is now rotated and appears upside down. This does not match [img2], where the capsule is horizontal and the number \"500\" is right-side up.\n\nLet's try a different angle. Maybe 300 degrees?\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 300, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 300
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating [img1] by 300 degrees counterclockwise, the capsule is now oriented vertically, with the black end at the top and the orange end at the bottom. The number \"500\" is now vertical and reads correctly. However, this does not match [img2], where the capsule is horizontal.\n\nLet's try 30 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 30, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 30
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0005"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating [img1] by 30 degrees counterclockwise, the capsule is now oriented horizontally, with the black end on the left and the orange end on the right. The number \"500\" is now aligned and reads correctly, matching [img2]. \n\nTherefore, the correct answer is (B) 30°.\n\n<answer> B </answer>",
+      "tool_calls": null,
+      "final_answer": "B",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/c2bcb3fe6622d930198d544a.webp",
+      "full_file": "replays/images/c2bcb3fe6622d930198d544a-zoom.webp",
+      "thumbnail": "replays/images/c2bcb3fe6622d930198d544a-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/7896faa7d821bf9de4a36fd4.webp",
+      "full_file": "replays/images/7896faa7d821bf9de4a36fd4-zoom.webp",
+      "thumbnail": "replays/images/7896faa7d821bf9de4a36fd4-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/28272a30524c4d3cd74736d3.webp",
+      "full_file": "replays/images/28272a30524c4d3cd74736d3-zoom.webp",
+      "thumbnail": "replays/images/28272a30524c4d3cd74736d3-thumb.webp",
+      "width": 1094,
+      "height": 1094,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/26bbc64a7545e00d101dfdc0.webp",
+      "full_file": "replays/images/26bbc64a7545e00d101dfdc0-zoom.webp",
+      "thumbnail": "replays/images/26bbc64a7545e00d101dfdc0-thumb.webp",
+      "width": 1094,
+      "height": 1094,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0005",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/b6fdf7114173f522e5e0ecde.webp",
+      "full_file": "replays/images/b6fdf7114173f522e5e0ecde-zoom.webp",
+      "thumbnail": "replays/images/b6fdf7114173f522e5e0ecde-thumb.webp",
+      "width": 1094,
+      "height": 1094,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "MVTec AD",
+      "source_url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+      "source_license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "MVTec Software GmbH",
+      "modifications": "Reference image and counterclockwise rotated image with sampled background fill.",
+      "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+    }
+  ]
+}

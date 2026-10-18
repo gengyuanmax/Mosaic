@@ -1,0 +1,135 @@
+{
+  "public_id": "mb-b1f85546b8337e33",
+  "task": "Template Rotation Grasp",
+  "question": "Figure 1 is the live camera view of an object; figure 2 is its canonical template from the grasp database. The object in figure 1 equals the template rotated counterclockwise by one of the following angles. Executing the candidates, which rotation is it?\n(A) 300°\n(B) 150°\n(C) 180°\n(D) 240°\n\nAnswer with only the correct option letter.",
+  "ground_truth": "C",
+  "final_answer": "C",
+  "termination_reason": "final_answer",
+  "num_steps": 3,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "To determine the correct rotation angle, I need to compare [img1] with [img2] and find the angle by which [img1] needs to be rotated to match [img2]. The template in [img2] shows the object with the \"FF\"字样 oriented normally.\n\nLet's examine [img1] and see how it differs from [img2]. In [img1], the \"FF\" appears to be rotated such that the left \"F\" is pointing more upwards and the right \"F\" is pointing more downwards. This suggests a rotation in the counter-clockwise direction.\n\nTo find the exact angle, I can try rotating [img1] by each of the given options and compare the result with [img2]. I'll start with option (C) 180°, as it's a simple rotation that might flip the image.\n\nLet's rotate [img1] by 180 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 180, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 180
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating [img1] by 180 degrees, the resulting image [img3] shows the \"FF\"字样 oriented the same way as in [img2]. The rotation appears to have flipped the image vertically, but the orientation of the \"FF\" is now correct.\n\nTo confirm, I should check if any of the other options (A) 300°, (B) 150°, or (D) 240° also result in the same orientation. However, since the question implies that one of these angles is correct, and 180° seems to match [img2], I should verify if this is indeed the intended answer.\n\nLet's compare [img3] with [img2] to be sure.\n\n<tool_call>\n{\"name\": \"compare_per_pixel_image_difference\", \"arguments\": {\"image1\": \"[img3]\", \"image2\": \"[img2]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "compare_per_pixel_image_difference",
+          "arguments": {},
+          "target_images": [
+            "img_0003",
+            "img_0002"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "compare_per_pixel_image_difference",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "The heatmap [img4] shows a completely blue image, which indicates that there are no differences between [img3] and [img2] at the pixel level. This confirms that rotating [img1] by 180 degrees results in an image that is identical to [img2].\n\nTherefore, the correct answer is (C) 180°.\n\n<answer> C </answer>",
+      "tool_calls": null,
+      "final_answer": "C",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/3b1cba4e58c51916abe86359.webp",
+      "full_file": "replays/images/3b1cba4e58c51916abe86359-zoom.webp",
+      "thumbnail": "replays/images/3b1cba4e58c51916abe86359-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/4e2889a5694dc1b6e64edc27.webp",
+      "full_file": "replays/images/4e2889a5694dc1b6e64edc27-zoom.webp",
+      "thumbnail": "replays/images/4e2889a5694dc1b6e64edc27-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/4e2889a5694dc1b6e64edc27.webp",
+      "full_file": "replays/images/4e2889a5694dc1b6e64edc27-zoom.webp",
+      "thumbnail": "replays/images/4e2889a5694dc1b6e64edc27-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0003",
+        "img_0002"
+      ],
+      "tool": "compare_per_pixel_image_difference",
+      "file": "replays/images/6cac38315d9fe7bde935a9bb.webp",
+      "full_file": "replays/images/6cac38315d9fe7bde935a9bb-zoom.webp",
+      "thumbnail": "replays/images/6cac38315d9fe7bde935a9bb-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "MVTec AD",
+      "source_url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+      "source_license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "MVTec Software GmbH",
+      "modifications": "Reference image and counterclockwise rotated image with sampled background fill.",
+      "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+    }
+  ],
+  "episode_id": "mb-b1f85546b8337e33"
+}

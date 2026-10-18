@@ -1,8 +1,23 @@
-# Website asset credits
+# Preview assets
 
-- `assets/method.png`, `assets/comparison.png` and `assets/benchmark.png`: rendered from the authors’ figures in [arXiv:2609.39363, v1](https://arxiv.org/abs/2609.39363v1). Copyright the paper authors. Comparison results refer to that paper version.
-- `assets/input-1.png` and `assets/input-2.png`: [MosaicBench](https://huggingface.co/datasets/gengyuanmax/MosaicBench), sample `mb-ec73eaa99039a05e`, figures 1 and 2. Derived from MVTec AD, MVTec Software GmbH, under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). See the dataset image manifest for source details and transformations.
-- `assets/crop.png`: upper-left quarter of input-1, produced by MosaicGym crop, under the same CC BY-NC-SA 4.0 terms.
-- `assets/trajectory.json`: summary of an actual MosaicAgent functional validation. The prompt explicitly requests the crop; this is not a benchmark accuracy result.
+`assets/mosaic-logo.png` is the project logo supplied by the user. The original PNG bytes are preserved and used for the site header and favicon.
 
-These image licenses are separate from the repository code license. The benchmark overview reproduces the paper figure, including its illustrative examples; standalone COCO evaluation images are not distributed here.
+The abstract is reproduced from the paper source used for this preview, with the final code/data release sentence omitted at the user's request. LaTeX project-name macros are expanded and the original emphasis is retained. Its body uses the system Georgia serif font, with Times New Roman and serif fallbacks.
+
+Inter is self-hosted from Google Fonts and distributed under the SIL Open Font License; see `assets/fonts/OFL.txt`.
+
+The paper figures are from the Mosaic authors' published paper. Dataset inputs are sample `mb-7e7ee9a456b2d1f0` from MosaicBench, derived from MVTec AD (MVTec Software GmbH), CC BY-NC-SA 4.0. Intermediate images were reconstructed from the recorded tool calls using MosaicGym. The raw model responses and tool arguments are retained in `assets/replay.json`.
+
+The demo is an interactive presentation of a recorded episode, not a live model endpoint. Reasoning and decision panels display existing response paragraphs verbatim; this is a presentation grouping. Workspace states are derived from the ordered tool results: a generated image appears only at the environment-response stage and is carried into the next round.
+
+The full trajectory stays in one scrollable Agent conversation. Step navigation scrolls to the corresponding section; scrolling the conversation updates the current step and environment. Optional playback moves through the existing messages and updates the workspace when the recorded response arrives. The original input images are shown beside the user question and can be enlarged. The Agent conversation uses linked IDs without an image gallery; each tool result appears above the accumulated environment workspace.
+
+The trajectory library contains 796 distinct recorded episodes for 540 questions across 27 task families: one complete archived evaluation, plus distinct episodes from the previously selected multi-step collection. The 20 COCO-image questions remain excluded from the visual library. Recorded failures and incomplete episodes are retained. The questions, ground truth, responses and tool calls belong to their recorded evaluation; they are not recomputed results for a subsequently revised dataset. Episode IDs and sample IDs are separate, and internal run names are not exported.
+
+`assets/replays/index.json` is the small catalogue. Each episode and its images load independently. The interface caches at most 12 episode records, prefetches only the two neighbouring records and their source thumbnails during idle time, and disables that prefetch on data-saving/slow connections. It mounts one conversation at a time. Stale responses cannot replace a more recently selected episode.
+
+All intermediates are reconstructed with MosaicGym from the original archived inputs at their original resolution before any presentation encoding. Images are deduplicated by RGBA pixels and dimensions. The page uses 160-pixel thumbnails, previews up to 1280 pixels, and native-resolution images on enlargement; generated canvases above 16 megapixels use their bounded preview in the browser to avoid excessive memory use. Native-resolution assets are retained in the package. WebP RGB compression is used for presentation, while alpha is preserved; these are visualizations, not replacement evaluation inputs. Exceptionally large canvases retain their original lossless encoding. Source-specific credits and notices are included per episode and in `assets/replays/ATTRIBUTION.md`, `LICENSE.md`, and `BDD100K-LICENSE.txt`.
+
+The Method section includes a free-interaction MosaicGym tool playground. Its ten operations directly call the existing Python `MosaicGym Toolbox.run` through the Python service. No browser tool algorithms remain. Real Toolbox image state persists on the server, and subsequent tools consume the exact RGBA results. The browser displays lossless PNG results and the actual A channel; CSS checkerboards and thumbnails never become tool inputs. This playground is independent of recorded model trajectories. See `PLAYGROUND.md` for the service, validation and hosting requirements.
+
+`assets/gym-examples.json` identifies four example sets and their existing source-specific credits. The first pair reuses the 384 × 384 MVTec-derived inputs from `assets/alpha-canvas/`; the remaining sets reuse input previews from the trajectory library at their stored dimensions, without another working-size reduction. Input assets are unchanged. The earlier precomputed rotation/overlay PNGs and their manifest remain as reference assets, but the current controls execute the Python tools for each operation.

@@ -1,0 +1,176 @@
+{
+  "public_id": "mb-22f4aa7322015132",
+  "episode_id": "mb-22f4aa7322015132-3bf669d45d",
+  "task": "Template Rotation Grasp",
+  "question": "Figure 1 is the live camera view of an object; figure 2 is its canonical template from the grasp database. The object in figure 1 equals the template rotated counterclockwise by one of the following angles. Executing the candidates, which rotation is it?\n(A) 240°\n(B) 90°\n(C) 45°\n(D) 315°\n\nAnswer with only the correct option letter.",
+  "ground_truth": "B",
+  "final_answer": "B",
+  "termination_reason": "final_answer",
+  "num_steps": 4,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "To determine the correct rotation angle, I need to compare [img1] with [img2] and find the angle by which [img1] needs to be rotated counterclockwise to match [img2].\n\nFirst, I'll draw a coordinate grid over [img1] to help visualize the rotation.\n\n<tool_call>\n{\"name\": \"draw_normalized_coordinate_grid\", \"arguments\": {\"grid_rows\": 4, \"grid_cols\": 4, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "draw_normalized_coordinate_grid",
+          "arguments": {
+            "grid_rows": 4,
+            "grid_cols": 4
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "draw_normalized_coordinate_grid",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "Now that I have the grid overlay on [img1], I can see the orientation of the \"FF\" pattern. The \"F\" on the left appears to be oriented with its vertical stem on the left and horizontal bar at the top. To match [img2], I need to rotate [img1] so that the \"F\" becomes upright as in [img2].\n\nTo test the rotation, I can apply each of the given angles to [img1] and compare the result with [img2]. Let's start with option (B) 90°.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 90, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 90
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating [img1] by 90 degrees, the resulting image [img4] shows the \"FF\" pattern oriented the same way as in [img2]. The \"F\" on the left and right are now upright, matching the template.\n\nTo confirm, I'll compare [img4] directly with [img2] to ensure they are identical.\n\n<tool_call>\n{\"name\": \"compare_per_pixel_image_difference\", \"arguments\": {\"image1\": \"[img4]\", \"image2\": \"[img2]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "compare_per_pixel_image_difference",
+          "arguments": {},
+          "target_images": [
+            "img_0004",
+            "img_0002"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "compare_per_pixel_image_difference",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0005"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "The heatmap [img5] shows a completely blue image, which indicates no pixel differences between [img4] and [img2]. This confirms that rotating [img1] by 90 degrees aligns it exactly with the template in [img2].\n\nTherefore, the correct answer is (B) 90°.\n\n<answer> B </answer>",
+      "tool_calls": null,
+      "final_answer": "B",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/33810d11505a0737bec53d19.webp",
+      "full_file": "replays/images/33810d11505a0737bec53d19-zoom.webp",
+      "thumbnail": "replays/images/33810d11505a0737bec53d19-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/455cdc2d5cec358283a80c0e.webp",
+      "full_file": "replays/images/455cdc2d5cec358283a80c0e-zoom.webp",
+      "thumbnail": "replays/images/455cdc2d5cec358283a80c0e-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "draw_normalized_coordinate_grid",
+      "file": "replays/images/ce7b1d1b923afb26b39e4615.webp",
+      "full_file": "replays/images/ce7b1d1b923afb26b39e4615-zoom.webp",
+      "thumbnail": "replays/images/ce7b1d1b923afb26b39e4615-thumb.webp",
+      "width": 834,
+      "height": 834,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/455cdc2d5cec358283a80c0e.webp",
+      "full_file": "replays/images/455cdc2d5cec358283a80c0e-zoom.webp",
+      "thumbnail": "replays/images/455cdc2d5cec358283a80c0e-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0005",
+      "source": [
+        "img_0004",
+        "img_0002"
+      ],
+      "tool": "compare_per_pixel_image_difference",
+      "file": "replays/images/6cac38315d9fe7bde935a9bb.webp",
+      "full_file": "replays/images/6cac38315d9fe7bde935a9bb-zoom.webp",
+      "thumbnail": "replays/images/6cac38315d9fe7bde935a9bb-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "MVTec AD",
+      "source_url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+      "source_license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "MVTec Software GmbH",
+      "modifications": "Reference image and counterclockwise rotated image with sampled background fill.",
+      "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+    }
+  ]
+}

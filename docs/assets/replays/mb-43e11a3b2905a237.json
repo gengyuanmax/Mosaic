@@ -1,0 +1,215 @@
+{
+  "public_id": "mb-43e11a3b2905a237",
+  "task": "Template Rotation Grasp",
+  "question": "Figure 1 is the live camera view of an object; figure 2 is its canonical template from the grasp database. The object in figure 1 equals the template rotated counterclockwise by one of the following angles. Executing the candidates, which rotation is it?\n(A) 180°\n(B) 150°\n(C) 210°\n(D) 45°\n\nAnswer with only the correct option letter.",
+  "ground_truth": "C",
+  "final_answer": "C",
+  "termination_reason": "final_answer",
+  "num_steps": 5,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "To determine the correct rotation angle, I need to compare [img1] with [img2] and find the angle by which [img1] needs to be rotated counterclockwise to match [img2].\n\nI can use the `rotate` tool to apply each of the given rotation angles to [img1] and then compare the result with [img2]. Let's start by rotating [img1] by 180 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 180, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 180
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating [img1] by 180 degrees, the resulting image [img3] shows the nut flipped upside down. The darkened tip, which was at the top in [img1], is now at the bottom in [img3]. This does not match [img2], where the darkened tip is at the bottom right.\n\nSo, 180 degrees is not correct. Let's try the next candidate, 150 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 150, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 150
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating [img1] by 150 degrees, the resulting image [img4] shows the nut rotated further. The darkened tip is now at the bottom, but the orientation is still not matching [img2]. In [img2], the darkened tip is at the bottom right and the lighter side is at the top left, whereas in [img4], the darkened tip is at the bottom center.\n\nLet's try the next candidate, 210 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 210, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 210
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0005"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating [img1] by 210 degrees, the resulting image [img5] shows the nut rotated even further. The darkened tip is now at the bottom right, which matches [img2]. The lighter side is at the top left in [img5], which also matches [img2]. The orientation of the nut in [img5] appears to be the same as in [img2].\n\nTo be sure, I'll rotate [img1] by 45 degrees as the last candidate.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 45, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 45
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0006"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "model_raw_response": "After rotating [img1] by 45 degrees, the resulting image [img6] shows the nut rotated by a smaller angle. The darkened tip is now at the top left, which does not match [img2]. Therefore, 45 degrees is not correct.\n\nBased on the comparisons, the rotation that aligns [img1] with [img2] is 210 degrees.\n\n<answer> C </answer>",
+      "tool_calls": null,
+      "final_answer": "C",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/5e6e87ce1fe25c7c59a643d1.webp",
+      "full_file": "replays/images/5e6e87ce1fe25c7c59a643d1-zoom.webp",
+      "thumbnail": "replays/images/5e6e87ce1fe25c7c59a643d1-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/a05b73be3521c491d7f7c022.webp",
+      "full_file": "replays/images/a05b73be3521c491d7f7c022-zoom.webp",
+      "thumbnail": "replays/images/a05b73be3521c491d7f7c022-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/4df7e37433da0ee8d5dd5736.webp",
+      "full_file": "replays/images/4df7e37433da0ee8d5dd5736-zoom.webp",
+      "thumbnail": "replays/images/4df7e37433da0ee8d5dd5736-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/91cc62123fc54d5b853a857c.webp",
+      "full_file": "replays/images/91cc62123fc54d5b853a857c-zoom.webp",
+      "thumbnail": "replays/images/91cc62123fc54d5b853a857c-thumb.webp",
+      "width": 1094,
+      "height": 1094,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0005",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/afbccbabc73833e0b37ad10c.webp",
+      "full_file": "replays/images/afbccbabc73833e0b37ad10c-zoom.webp",
+      "thumbnail": "replays/images/afbccbabc73833e0b37ad10c-thumb.webp",
+      "width": 1094,
+      "height": 1094,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0006",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/69414e978f484efea10f4c70.webp",
+      "full_file": "replays/images/69414e978f484efea10f4c70-zoom.webp",
+      "thumbnail": "replays/images/69414e978f484efea10f4c70-thumb.webp",
+      "width": 1132,
+      "height": 1132,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "MVTec AD",
+      "source_url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+      "source_license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "MVTec Software GmbH",
+      "modifications": "Reference image and counterclockwise rotated image with sampled background fill.",
+      "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+    }
+  ],
+  "episode_id": "mb-43e11a3b2905a237"
+}

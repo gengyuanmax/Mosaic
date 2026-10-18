@@ -1,0 +1,215 @@
+{
+  "public_id": "mb-62c3f582b05376f0",
+  "episode_id": "mb-62c3f582b05376f0-45684aa6fc",
+  "task": "Assembly Orientation Alignment",
+  "question": "Figure 1 shows a part lying on the workbench; figure 2 shows the orientation the assembly instructions require for the SAME part. Rotating figure 1 counterclockwise by which angle brings it into the required orientation?\n(A) 120°\n(B) 270°\n(C) 150°\n(D) 60°\n\nAnswer with only the correct option letter.",
+  "ground_truth": "D",
+  "final_answer": "D",
+  "termination_reason": "final_answer",
+  "num_steps": 5,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "To determine the angle by which [img1] needs to be rotated counterclockwise to match [img2], I need to analyze the orientation of the capsule in both images.\n\nIn [img1], the capsule is oriented diagonally, with the black end pointing towards the top-left and the orange end towards the bottom-right. In [img2], the capsule is oriented horizontally, with the black end on the left and the orange end on the right.\n\nTo find the angle, I can rotate [img1] and compare it with [img2] to find the matching orientation. I'll use the `rotate` tool to test the given options.\n\nLet's start by rotating [img1] by 120 degrees counterclockwise.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 120, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 120
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating [img1] by 120 degrees counterclockwise, the capsule is now oriented with the black end at the bottom and the orange end at the top, but it's still not horizontal. It seems 120 degrees is too much.\n\nLet's try the next option, 270 degrees counterclockwise.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 270, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 270
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating [img1] by 270 degrees counterclockwise, the capsule is now oriented with the black end at the top-right and the orange end at the bottom-left. It's closer, but still not horizontal. It seems 270 degrees is too much.\n\nLet's try the next option, 150 degrees counterclockwise.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 150, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 150
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0005"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating [img1] by 150 degrees counterclockwise, the capsule is now oriented vertically, with the black end at the bottom and the orange end at the top. This is the opposite of what we want. It seems 150 degrees is too much.\n\nLet's try the last option, 60 degrees counterclockwise.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 60, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 60
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0006"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "model_raw_response": "After rotating [img1] by 60 degrees counterclockwise, the capsule is now oriented horizontally, with the black end on the left and the orange end on the right. This matches the orientation in [img2].\n\nTherefore, the correct answer is (D) 60°.\n\n<answer> D </answer>",
+      "tool_calls": null,
+      "final_answer": "D",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/1d640b61c6fa1ea9a63bde68.webp",
+      "full_file": "replays/images/1d640b61c6fa1ea9a63bde68-zoom.webp",
+      "thumbnail": "replays/images/1d640b61c6fa1ea9a63bde68-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/40af638976f6a74ad8cc8f49.webp",
+      "full_file": "replays/images/40af638976f6a74ad8cc8f49-zoom.webp",
+      "thumbnail": "replays/images/40af638976f6a74ad8cc8f49-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/ae6d5a0eff14170428f0e80d.webp",
+      "full_file": "replays/images/ae6d5a0eff14170428f0e80d-zoom.webp",
+      "thumbnail": "replays/images/ae6d5a0eff14170428f0e80d-thumb.webp",
+      "width": 1094,
+      "height": 1094,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/76d79c45034779042f85e2ae.webp",
+      "full_file": "replays/images/76d79c45034779042f85e2ae-zoom.webp",
+      "thumbnail": "replays/images/76d79c45034779042f85e2ae-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0005",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/cca39482e94e82d58ff91413.webp",
+      "full_file": "replays/images/cca39482e94e82d58ff91413-zoom.webp",
+      "thumbnail": "replays/images/cca39482e94e82d58ff91413-thumb.webp",
+      "width": 1094,
+      "height": 1094,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0006",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/e1fbae3e770ad08367e992ba.webp",
+      "full_file": "replays/images/e1fbae3e770ad08367e992ba-zoom.webp",
+      "thumbnail": "replays/images/e1fbae3e770ad08367e992ba-thumb.webp",
+      "width": 1094,
+      "height": 1094,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "MVTec AD",
+      "source_url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+      "source_license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "MVTec Software GmbH",
+      "modifications": "Reference image and counterclockwise rotated image with sampled background fill.",
+      "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+    }
+  ]
+}
