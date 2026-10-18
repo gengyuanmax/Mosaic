@@ -1,0 +1,164 @@
+{
+  "public_id": "mb-8a3bc37c3ee16c9b",
+  "episode_id": "mb-8a3bc37c3ee16c9b-b2cba2d595",
+  "task": "Rotated Text OCR",
+  "question": "The figure is a scanned document page that has been rotated counterclockwise by an unknown angle. Rotating the figure further counterclockwise by which of the following angles (in degrees) restores the page to its normal upright reading orientation?\n(A) 66\n(B) 184\n(C) 4\n(D) None of the above restores it.\n\nAnswer with only the correct option letter.",
+  "ground_truth": "D",
+  "final_answer": "D",
+  "termination_reason": "final_answer",
+  "num_steps": 4,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image [img1] shows a scanned document page that has been rotated counterclockwise by some unknown angle. We need to determine by how much more it should be rotated counterclockwise to return it to its normal orientation.\n\nTo do this, we can try rotating the image by each of the given options and see which one aligns it properly. Let's start with option (A) 66 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 66, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 66
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating the image by 66 degrees, the text is still not aligned properly. It appears that the rotation was too much or too little. Let's try the next option, (B) 184 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 184, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 184
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating the image by 184 degrees, the text is still not in the correct orientation. It seems that we might need to try a smaller rotation, perhaps option (C) 4 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 4, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 4
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating the image by 4 degrees, the text is still not aligned properly. It appears that none of the given options (A) 66, (B) 184, or (C) 4 degrees restore the page to its normal orientation.\n\nTherefore, the correct answer is (D) None of the above restores it.\n\n<answer> D </answer>",
+      "tool_calls": null,
+      "final_answer": "D",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/beffa1c1d3af1a281481c03a.webp",
+      "full_file": "replays/images/beffa1c1d3af1a281481c03a-zoom.webp",
+      "thumbnail": "replays/images/beffa1c1d3af1a281481c03a-thumb.webp",
+      "width": 962,
+      "height": 1002,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/76154f9a9778c0b8b0674904.webp",
+      "full_file": "replays/images/76154f9a9778c0b8b0674904-zoom.webp",
+      "thumbnail": "replays/images/76154f9a9778c0b8b0674904-thumb.webp",
+      "width": 1308,
+      "height": 1288,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/7ab57a24bf55b48ded51bee1.webp",
+      "full_file": "replays/images/7ab57a24bf55b48ded51bee1-zoom.webp",
+      "thumbnail": "replays/images/7ab57a24bf55b48ded51bee1-thumb.webp",
+      "width": 1030,
+      "height": 1068,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/66a9d6e13b97586033f058a7.webp",
+      "full_file": "replays/images/66a9d6e13b97586033f058a7-zoom.webp",
+      "thumbnail": "replays/images/66a9d6e13b97586033f058a7-thumb.webp",
+      "width": 1030,
+      "height": 1068,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "PubLayNet",
+      "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+      "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "attribution": null,
+      "modifications": null,
+      "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+    }
+  ]
+}

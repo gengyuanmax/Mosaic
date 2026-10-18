@@ -1,0 +1,285 @@
+{
+  "public_id": "mb-bbaafb8777d5765e",
+  "task": "Rotated Text OCR",
+  "question": "The figure is a scanned document page that has been rotated counterclockwise by an unknown angle. Rotating the figure further counterclockwise by which of the following angles (in degrees) restores the page to its normal upright reading orientation?\n(A) 208\n(B) 291\n(C) 111\n(D) None of the above restores it.\n\nAnswer with only the correct option letter.",
+  "ground_truth": "C",
+  "final_answer": "C",
+  "termination_reason": "final_answer",
+  "num_steps": 7,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image [img1] shows a scanned document page that has been rotated counterclockwise by an unknown angle. To determine the angle needed to rotate it further counterclockwise to restore it to its normal orientation, I need to analyze the current rotation and calculate the required additional rotation.\n\nFirst, I'll draw a coordinate grid over the image to help visualize the rotation and measure the angle.\n\n<tool_call>\n{\"name\": \"draw_normalized_coordinate_grid\", \"arguments\": {\"grid_rows\": 4, \"grid_cols\": 4, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "draw_normalized_coordinate_grid",
+          "arguments": {
+            "grid_rows": 4,
+            "grid_cols": 4
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "draw_normalized_coordinate_grid",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After drawing the grid, I can see that the image is rotated such that the top-left corner is now somewhere in the middle of the left side. To get a better sense of the rotation, I can try rotating the image by a certain angle and see if it aligns.\n\nLet's try rotating the image by 208 degrees (option A).\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 208, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 208
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating the image by 208 degrees, the text is still not aligned properly. It appears that the rotation was too much. Let's try a different approach.\n\nInstead of guessing, I can use a tool to compare the current image with a reference image (the original, unrotated version if available) or use a different method to determine the rotation angle.\n\nSince I don't have the original unrotated image, I can try to estimate the rotation angle by observing the orientation of a known feature in the image. For example, I can look at the title or a distinct line and estimate how much it needs to be rotated to align with the expected orientation.\n\nAlternatively, I can use a tool to rotate the image by a small increment and observe the change.\n\nLet's try rotating the image by 111 degrees (option C).\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 111, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 111
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating the image by 111 degrees, the text appears to be much closer to the original orientation. The lines are now aligned horizontally, and the content is readable. However, to be sure, I should compare this rotated version with the original image to confirm.\n\nSince I don't have the original unrotated image, I can use a different approach. I can rotate the image by a small increment around the 111-degree mark to fine-tune the rotation.\n\nLet's try rotating the image by 120 degrees to see if that brings it even closer to the original.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 120, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 120
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0005"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "model_raw_response": "After rotating the image by 120 degrees, the text appears to be even closer to the original orientation. The lines are now almost perfectly aligned horizontally, and the content is very readable. However, to be sure, I should compare this rotated version with the original image to confirm.\n\nSince I don't have the original unrotated image, I can use a different approach. I can rotate the image by a small decrement around the 111-degree mark to fine-tune the rotation.\n\nLet's try rotating the image by 110 degrees to see if that brings it even closer to the original.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 110, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 110
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0006"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "model_raw_response": "After rotating the image by 110 degrees, the text appears to be very close to the original orientation. The lines are aligned horizontally, and the content is readable. Comparing this with the previous rotations (111 and 120 degrees), the 110-degree rotation seems to be the closest to the original.\n\nHowever, since the question asks for the angle that restores the page to its normal upright reading orientation, and given the options (208, 291, and 111), it's likely that 111 degrees is the intended answer, as it's the closest to what I observed in [img4].\n\nTo be sure, I can try rotating the image by 111 degrees again to confirm.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 111, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 111
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0007"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "model_raw_response": "After rotating the image by 111 degrees, the text appears to be in the same orientation as in [img4] and [img6]. The lines are aligned horizontally, and the content is readable. This seems to be the closest to the original orientation among the given options.\n\nTherefore, the correct answer is C.\n\n<answer> C </answer>",
+      "tool_calls": null,
+      "final_answer": "C",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/6bcede2d1577c47600638a81.webp",
+      "full_file": "replays/images/6bcede2d1577c47600638a81-zoom.webp",
+      "thumbnail": "replays/images/6bcede2d1577c47600638a81-thumb.webp",
+      "width": 960,
+      "height": 856,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "draw_normalized_coordinate_grid",
+      "file": "replays/images/4ef82d9e11251964e921c81e.webp",
+      "full_file": "replays/images/4ef82d9e11251964e921c81e-zoom.webp",
+      "thumbnail": "replays/images/4ef82d9e11251964e921c81e-thumb.webp",
+      "width": 994,
+      "height": 890,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/741af98f0968944dca710022.webp",
+      "full_file": "replays/images/741af98f0968944dca710022-zoom.webp",
+      "thumbnail": "replays/images/741af98f0968944dca710022-thumb.webp",
+      "width": 1250,
+      "height": 1208,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/e1d45c2393d3f011a9fa3130.webp",
+      "full_file": "replays/images/e1d45c2393d3f011a9fa3130-zoom.webp",
+      "thumbnail": "replays/images/e1d45c2393d3f011a9fa3130-thumb.webp",
+      "width": 1144,
+      "height": 1204,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0005",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/6597534c7e52776c963f116d.webp",
+      "full_file": "replays/images/6597534c7e52776c963f116d-zoom.webp",
+      "thumbnail": "replays/images/6597534c7e52776c963f116d-thumb.webp",
+      "width": 1222,
+      "height": 1260,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0006",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/ba69ef31ae6f627767f7f4fa.webp",
+      "full_file": "replays/images/ba69ef31ae6f627767f7f4fa-zoom.webp",
+      "thumbnail": "replays/images/ba69ef31ae6f627767f7f4fa-thumb.webp",
+      "width": 1134,
+      "height": 1196,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0007",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/e1d45c2393d3f011a9fa3130.webp",
+      "full_file": "replays/images/e1d45c2393d3f011a9fa3130-zoom.webp",
+      "thumbnail": "replays/images/e1d45c2393d3f011a9fa3130-thumb.webp",
+      "width": 1144,
+      "height": 1204,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "PubLayNet",
+      "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+      "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "attribution": null,
+      "modifications": null,
+      "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+    }
+  ],
+  "episode_id": "mb-bbaafb8777d5765e"
+}

@@ -1,0 +1,84 @@
+{
+  "public_id": "mb-c0c5031e24d8b3b7",
+  "task": "Mirror Sign Reading",
+  "question": "This image is seen in a rear-view mirror, so it is mirrored left-right. It contains one speed-limit sign. What speed limit does the sign actually show?\n(A) 60 km/h\n(B) 35 km/h\n(C) 70 km/h\n(D) 50 km/h\n\nAnswer with only the correct option letter.",
+  "ground_truth": "A",
+  "final_answer": "A",
+  "termination_reason": "final_answer",
+  "num_steps": 2,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image appears to be mirrored left-right, as it is seen in a rear-view mirror. The speed limit sign is a circular sign with a red border and a white background. The number on the sign appears to be \"60\", but due to the mirror effect, the digits may appear reversed.\n\nTo determine the actual speed limit, I need to inspect the sign more closely. I will use a tool to flip the image horizontally to correct the mirror effect and then read the sign.\n\nLet's flip the image horizontally to see what it actually says.\n\n<tool_call>\n{\"name\": \"flip\", \"arguments\": {\"mode\": \"horizontal\", \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "flip",
+          "arguments": {
+            "mode": "horizontal"
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "flip",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After flipping the image horizontally, the sign now clearly shows \"60\" in a circular format with a red border. The number \"60\" is legible and not reversed. The sign next to it is a \"no horn\" sign, which is unrelated to the speed limit.\n\nTherefore, the speed limit shown on the sign is 60 km/h.\n\nThe correct answer is (A) 60 km/h.\n\n<answer> A </answer>",
+      "tool_calls": null,
+      "final_answer": "A",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/b88eccadb7135506cbd1cd5e.webp",
+      "full_file": "replays/images/b88eccadb7135506cbd1cd5e-zoom.webp",
+      "thumbnail": "replays/images/b88eccadb7135506cbd1cd5e-thumb.webp",
+      "width": 337,
+      "height": 336,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "flip",
+      "file": "replays/images/c9e8d70936eae8b0a03109b3.webp",
+      "full_file": "replays/images/c9e8d70936eae8b0a03109b3-zoom.webp",
+      "thumbnail": "replays/images/c9e8d70936eae8b0a03109b3-thumb.webp",
+      "width": 337,
+      "height": 336,
+      "has_transparency": false
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "TT100K",
+      "source_url": "https://cg.cs.tsinghua.edu.cn/traffic-sign/",
+      "source_license": "CC-BY-NC (upstream does not specify version)",
+      "license_url": "https://cg.cs.tsinghua.edu.cn/traffic-sign/",
+      "attribution": "Zhe Zhu; Dun Liang; Songhai Zhang; Xiaolei Huang; Baoli Li; Shimin Hu; Tsinghua-Tencent 100K",
+      "modifications": "Cropped and horizontally mirrored traffic image; answer derived from source sign label.",
+      "rights_note": "Official dataset grant states CC-BY-NC; retain exact designation and official link, without inventing a version. Add authors, citation and modification notices; noncommercial distribution only."
+    }
+  ],
+  "episode_id": "mb-c0c5031e24d8b3b7"
+}

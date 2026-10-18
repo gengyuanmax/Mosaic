@@ -1,0 +1,88 @@
+[
+  {
+    "id": "mb-7e7ee9a456b2d1f0",
+    "label": "Illumination Vs Defect",
+    "images": [
+      {
+        "file": "assets/alpha-canvas/background.png"
+      },
+      {
+        "file": "assets/alpha-canvas/foreground.png"
+      }
+    ],
+    "credits": [
+      {
+        "source_dataset": "MVTec AD",
+        "source_url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+        "source_license": "CC-BY-NC-SA-4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "attribution": "MVTec Software GmbH",
+        "modifications": "Aligned reference/test pair with synthetic spatial illumination and defects where applicable.",
+        "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+      }
+    ]
+  },
+  {
+    "id": "mb-0f0698124376e84d",
+    "label": "Oblique Document Rectification",
+    "images": [
+      {
+        "file": "assets/replays/images/028477466759cb838ae096d3.webp"
+      }
+    ],
+    "credits": [
+      {
+        "source_dataset": "SmartDoc15-CH1",
+        "source_url": "https://zenodo.org/records/1230218",
+        "source_license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Joseph Chazalon; Marçal Rusiñol; SmartDoc authors",
+        "modifications": "Video frame extraction and image encoding; candidate homographies derived from document corner annotations.",
+        "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+      }
+    ]
+  },
+  {
+    "id": "mb-02e54780c0c7bb6d",
+    "label": "Rotated Text OCR",
+    "images": [
+      {
+        "file": "assets/replays/images/85b53630600edb611a614e63.webp"
+      }
+    ],
+    "credits": [
+      {
+        "source_dataset": "PubLayNet",
+        "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+        "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+        "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+        "attribution": null,
+        "modifications": null,
+        "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+      }
+    ]
+  },
+  {
+    "id": "mb-003cecacde348903",
+    "label": "Template Rotation Grasp",
+    "images": [
+      {
+        "file": "assets/replays/images/57dc0e5f58b84c7fde823f3e.webp"
+      },
+      {
+        "file": "assets/replays/images/5d271d877249118763026f5e.webp"
+      }
+    ],
+    "credits": [
+      {
+        "source_dataset": "MVTec AD",
+        "source_url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+        "source_license": "CC-BY-NC-SA-4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "attribution": "MVTec Software GmbH",
+        "modifications": "Reference image and counterclockwise rotated image with sampled background fill.",
+        "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+      }
+    ]
+  }
+]

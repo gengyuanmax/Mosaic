@@ -1,0 +1,230 @@
+{
+  "kind": "tool_example",
+  "source_sample": "mb-7e7ee9a456b2d1f0",
+  "preparation": {
+    "name": "resize",
+    "arguments": {
+      "width": 384,
+      "height": 384
+    }
+  },
+  "overlay_arguments": {
+    "x": 0.22,
+    "y": 0.22
+  },
+  "background": {
+    "rgba": "assets/alpha-canvas/background.png",
+    "alpha": "assets/alpha-canvas/background-alpha.png",
+    "width": 384,
+    "height": 384,
+    "alpha_range": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0
+  },
+  "foreground": {
+    "rgba": "assets/alpha-canvas/foreground.png",
+    "alpha": "assets/alpha-canvas/foreground-alpha.png",
+    "width": 384,
+    "height": 384,
+    "alpha_range": [
+      255,
+      255
+    ],
+    "transparent_pixels": 0,
+    "partial_alpha_pixels": 0
+  },
+  "frames": [
+    {
+      "angle": 0,
+      "rotated": {
+        "rgba": "assets/alpha-canvas/rotate-0.png",
+        "alpha": "assets/alpha-canvas/rotate-0-alpha.png",
+        "width": 384,
+        "height": 384,
+        "alpha_range": [
+          255,
+          255
+        ],
+        "transparent_pixels": 0,
+        "partial_alpha_pixels": 0
+      },
+      "composite": {
+        "rgba": "assets/alpha-canvas/overlay-0.png",
+        "alpha": "assets/alpha-canvas/overlay-0-alpha.png",
+        "width": 468,
+        "height": 468,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 14112,
+        "partial_alpha_pixels": 0
+      }
+    },
+    {
+      "angle": 15,
+      "rotated": {
+        "rgba": "assets/alpha-canvas/rotate-15.png",
+        "alpha": "assets/alpha-canvas/rotate-15-alpha.png",
+        "width": 472,
+        "height": 472,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 75328,
+        "partial_alpha_pixels": 0
+      },
+      "composite": {
+        "rgba": "assets/alpha-canvas/overlay-15.png",
+        "alpha": "assets/alpha-canvas/overlay-15-alpha.png",
+        "width": 556,
+        "height": 556,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 80628,
+        "partial_alpha_pixels": 0
+      }
+    },
+    {
+      "angle": 30,
+      "rotated": {
+        "rgba": "assets/alpha-canvas/rotate-30.png",
+        "alpha": "assets/alpha-canvas/rotate-30-alpha.png",
+        "width": 526,
+        "height": 526,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 129220,
+        "partial_alpha_pixels": 0
+      },
+      "composite": {
+        "rgba": "assets/alpha-canvas/overlay-30.png",
+        "alpha": "assets/alpha-canvas/overlay-30-alpha.png",
+        "width": 610,
+        "height": 610,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 131827,
+        "partial_alpha_pixels": 0
+      }
+    },
+    {
+      "angle": 45,
+      "rotated": {
+        "rgba": "assets/alpha-canvas/rotate-45.png",
+        "alpha": "assets/alpha-canvas/rotate-45-alpha.png",
+        "width": 544,
+        "height": 544,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 148512,
+        "partial_alpha_pixels": 0
+      },
+      "composite": {
+        "rgba": "assets/alpha-canvas/overlay-45.png",
+        "alpha": "assets/alpha-canvas/overlay-45-alpha.png",
+        "width": 628,
+        "height": 628,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 151564,
+        "partial_alpha_pixels": 0
+      }
+    },
+    {
+      "angle": 60,
+      "rotated": {
+        "rgba": "assets/alpha-canvas/rotate-60.png",
+        "alpha": "assets/alpha-canvas/rotate-60-alpha.png",
+        "width": 526,
+        "height": 526,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 129220,
+        "partial_alpha_pixels": 0
+      },
+      "composite": {
+        "rgba": "assets/alpha-canvas/overlay-60.png",
+        "alpha": "assets/alpha-canvas/overlay-60-alpha.png",
+        "width": 610,
+        "height": 610,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 131827,
+        "partial_alpha_pixels": 0
+      }
+    },
+    {
+      "angle": 75,
+      "rotated": {
+        "rgba": "assets/alpha-canvas/rotate-75.png",
+        "alpha": "assets/alpha-canvas/rotate-75-alpha.png",
+        "width": 472,
+        "height": 472,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 75328,
+        "partial_alpha_pixels": 0
+      },
+      "composite": {
+        "rgba": "assets/alpha-canvas/overlay-75.png",
+        "alpha": "assets/alpha-canvas/overlay-75-alpha.png",
+        "width": 556,
+        "height": 556,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 80628,
+        "partial_alpha_pixels": 0
+      }
+    },
+    {
+      "angle": 90,
+      "rotated": {
+        "rgba": "assets/alpha-canvas/rotate-90.png",
+        "alpha": "assets/alpha-canvas/rotate-90-alpha.png",
+        "width": 384,
+        "height": 384,
+        "alpha_range": [
+          255,
+          255
+        ],
+        "transparent_pixels": 0,
+        "partial_alpha_pixels": 0
+      },
+      "composite": {
+        "rgba": "assets/alpha-canvas/overlay-90.png",
+        "alpha": "assets/alpha-canvas/overlay-90-alpha.png",
+        "width": 468,
+        "height": 468,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "transparent_pixels": 14112,
+        "partial_alpha_pixels": 0
+      }
+    }
+  ]
+}

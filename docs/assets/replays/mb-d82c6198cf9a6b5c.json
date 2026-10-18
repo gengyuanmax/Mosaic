@@ -1,0 +1,84 @@
+{
+  "public_id": "mb-d82c6198cf9a6b5c",
+  "task": "Mirror Sign Reading",
+  "question": "This image is seen in a rear-view mirror, so it is mirrored left-right. It contains one speed-limit sign. What speed limit does the sign actually show?\n(A) 110 km/h\n(B) 90 km/h\n(C) 100 km/h\n(D) 80 km/h\n\nAnswer with only the correct option letter.",
+  "ground_truth": "D",
+  "final_answer": "D",
+  "termination_reason": "final_answer",
+  "num_steps": 2,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image appears to be mirrored left-right, as it is seen in a rear-view mirror. The speed limit sign shows \"08\" inside a circular sign, and there is a rectangular sign below it with some text. Due to the mirror effect, the digits and text may appear reversed.\n\nTo determine the actual speed limit, I need to inspect the sign more closely. I will use a tool to flip the image horizontally to correct for the mirror effect and then read the sign.\n\nLet's flip the image horizontally to see what it actually says.\n\n<tool_call>\n{\"name\": \"flip\", \"arguments\": {\"mode\": \"horizontal\", \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "flip",
+          "arguments": {
+            "mode": "horizontal"
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "flip",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After flipping the image horizontally, the sign now clearly shows \"80\" inside the circular sign. The rectangular sign below appears to have Chinese characters, but the question is specifically about the speed limit, which is indicated by the number in the circle.\n\nThe flipped image confirms that the speed limit is 80 km/h.\n\nTherefore, the correct answer is (D) 80 km/h.\n\n<answer> D </answer>",
+      "tool_calls": null,
+      "final_answer": "D",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/1c63f629908dffd4961395f7.webp",
+      "full_file": "replays/images/1c63f629908dffd4961395f7-zoom.webp",
+      "thumbnail": "replays/images/1c63f629908dffd4961395f7-thumb.webp",
+      "width": 280,
+      "height": 280,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "flip",
+      "file": "replays/images/d3f31ed4aa3f7ca766c30349.webp",
+      "full_file": "replays/images/d3f31ed4aa3f7ca766c30349-zoom.webp",
+      "thumbnail": "replays/images/d3f31ed4aa3f7ca766c30349-thumb.webp",
+      "width": 280,
+      "height": 280,
+      "has_transparency": false
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "TT100K",
+      "source_url": "https://cg.cs.tsinghua.edu.cn/traffic-sign/",
+      "source_license": "CC-BY-NC (upstream does not specify version)",
+      "license_url": "https://cg.cs.tsinghua.edu.cn/traffic-sign/",
+      "attribution": "Zhe Zhu; Dun Liang; Songhai Zhang; Xiaolei Huang; Baoli Li; Shimin Hu; Tsinghua-Tencent 100K",
+      "modifications": "Cropped and horizontally mirrored traffic image; answer derived from source sign label.",
+      "rights_note": "Official dataset grant states CC-BY-NC; retain exact designation and official link, without inventing a version. Add authors, citation and modification notices; noncommercial distribution only."
+    }
+  ],
+  "episode_id": "mb-d82c6198cf9a6b5c"
+}

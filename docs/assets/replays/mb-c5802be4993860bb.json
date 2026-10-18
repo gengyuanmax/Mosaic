@@ -1,0 +1,204 @@
+{
+  "public_id": "mb-c5802be4993860bb",
+  "task": "Rotated Text OCR",
+  "question": "The figure is a scanned document page that has been rotated counterclockwise by an unknown angle. Rotating the figure further counterclockwise by which of the following angles (in degrees) restores the page to its normal upright reading orientation?\n(A) 325\n(B) 176\n(C) 145\n(D) None of the above restores it.\n\nAnswer with only the correct option letter.",
+  "ground_truth": "D",
+  "final_answer": "D",
+  "termination_reason": "final_answer",
+  "num_steps": 5,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image [img1] shows a scanned document page that has been rotated counterclockwise by some unknown angle. The text is slanted to the left, indicating a counterclockwise rotation. To determine the exact angle needed to rotate it back to its original orientation, I can use the `rotate` tool to test each of the given options and compare the result with the original.\n\nLet's start by rotating the image by 325 degrees and see if it aligns.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 325, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 325
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating the image by 325 degrees, the text is still not aligned. It appears that the rotation was too much, as the text is now rotated in the opposite direction (clockwise) and is even more slanted.\n\nLet's try the next option, 176 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 176, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 176
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating the image by 176 degrees, the text is still not in the correct orientation. It appears that the rotation is closer but still not quite right. The text is now rotated slightly less than in the previous attempt, but it's still slanted.\n\nLet's try the last option, 145 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 145, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 145
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating the image by 145 degrees, the text is still not aligned. It appears that none of the given angles (325, 176, or 145) restore the page to its normal orientation.\n\nTo be sure, I can try a different approach. I can rotate the image by a smaller angle to get a better sense of how much rotation is needed. Let's try rotating it by 180 degrees to see if that helps.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 180, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 180
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0005"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "model_raw_response": "After rotating the image by 180 degrees, the text is still not in the correct orientation. It appears that the rotation is too much in the opposite direction.\n\nGiven that none of the provided angles (325, 176, or 145) restore the page to its normal orientation, the correct answer is (D) None of the above restores it.\n\n<answer> D </answer>",
+      "tool_calls": null,
+      "final_answer": "D",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/9a2f6ddc2d07eb870837242a.webp",
+      "full_file": "replays/images/9a2f6ddc2d07eb870837242a-zoom.webp",
+      "thumbnail": "replays/images/9a2f6ddc2d07eb870837242a-thumb.webp",
+      "width": 966,
+      "height": 1002,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/55d7b887bf6aae2066e38af9.webp",
+      "full_file": "replays/images/55d7b887bf6aae2066e38af9-zoom.webp",
+      "thumbnail": "replays/images/55d7b887bf6aae2066e38af9-thumb.webp",
+      "width": 1368,
+      "height": 1376,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/dfb8fad1f3d0eb8c7e05dcf8.webp",
+      "full_file": "replays/images/dfb8fad1f3d0eb8c7e05dcf8-zoom.webp",
+      "thumbnail": "replays/images/dfb8fad1f3d0eb8c7e05dcf8-thumb.webp",
+      "width": 1034,
+      "height": 1068,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/72f1b72393201364bb3e3f54.webp",
+      "full_file": "replays/images/72f1b72393201364bb3e3f54-zoom.webp",
+      "thumbnail": "replays/images/72f1b72393201364bb3e3f54-thumb.webp",
+      "width": 1368,
+      "height": 1376,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0005",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/327ac8b9f58f20019f74bab9.webp",
+      "full_file": "replays/images/327ac8b9f58f20019f74bab9-zoom.webp",
+      "thumbnail": "replays/images/327ac8b9f58f20019f74bab9-thumb.webp",
+      "width": 966,
+      "height": 1002,
+      "has_transparency": false
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "PubLayNet",
+      "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+      "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "attribution": null,
+      "modifications": null,
+      "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+    }
+  ],
+  "episode_id": "mb-c5802be4993860bb"
+}

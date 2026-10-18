@@ -1,0 +1,164 @@
+{
+  "public_id": "mb-8c6feb52dd203b72",
+  "episode_id": "mb-8c6feb52dd203b72-7d28d4db5c",
+  "task": "Rotated Text OCR",
+  "question": "The figure is a scanned document page that has been rotated counterclockwise by an unknown angle. Rotating the figure further counterclockwise by which of the following angles (in degrees) restores the page to its normal upright reading orientation?\n(A) 152\n(B) 121\n(C) 332\n(D) None of the above restores it.\n\nAnswer with only the correct option letter.",
+  "ground_truth": "C",
+  "final_answer": "C",
+  "termination_reason": "final_answer",
+  "num_steps": 4,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image [img1] shows a scanned document page that has been rotated counterclockwise by some unknown angle. The text is slanted to the left, which is a clear indication of the rotation. To determine the exact angle needed to rotate the image further counterclockwise to return it to its normal orientation, we can use the `rotate` tool to test each of the given options.\n\nLet's start by rotating the image by 152 degrees and see if it aligns correctly.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 152, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 152
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating the image by 152 degrees, the text in [img2] appears to be even more skewed than in the original image. It seems that rotating further counterclockwise has made the problem worse rather than better. This suggests that 152 degrees is likely not the correct answer.\n\nLet's try the next option, 121 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 121, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 121
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating the image by 121 degrees, the text in [img3] is still skewed, but perhaps less so than after the 152-degree rotation. However, it's still not aligned to a normal reading orientation. The text appears to be rotated further counterclockwise, but not enough to correct the original rotation.\n\nLet's try the third option, 332 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 332, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 332
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating the image by 332 degrees, the text in [img4] appears to be aligned correctly. The table, headings, and paragraphs are now oriented as they would be in a standard, upright document. The rotation seems to have corrected the original skewing, bringing the page back to its normal reading orientation.\n\nTherefore, the correct answer is (C) 332.\n\n<answer> C </answer>",
+      "tool_calls": null,
+      "final_answer": "C",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/9b1106ea1177be6defbe5e12.webp",
+      "full_file": "replays/images/9b1106ea1177be6defbe5e12-zoom.webp",
+      "thumbnail": "replays/images/9b1106ea1177be6defbe5e12-thumb.webp",
+      "width": 914,
+      "height": 988,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/87d97aeac3a9c664cd7d6ff0.webp",
+      "full_file": "replays/images/87d97aeac3a9c664cd7d6ff0-zoom.webp",
+      "thumbnail": "replays/images/87d97aeac3a9c664cd7d6ff0-thumb.webp",
+      "width": 1272,
+      "height": 1302,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/0162d740d8bcda37600a7957.webp",
+      "full_file": "replays/images/0162d740d8bcda37600a7957-zoom.webp",
+      "thumbnail": "replays/images/0162d740d8bcda37600a7957-thumb.webp",
+      "width": 1318,
+      "height": 1294,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/6a9ead1189d59088ef7e07af.webp",
+      "full_file": "replays/images/6a9ead1189d59088ef7e07af-zoom.webp",
+      "thumbnail": "replays/images/6a9ead1189d59088ef7e07af-thumb.webp",
+      "width": 1272,
+      "height": 1302,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "PubLayNet",
+      "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+      "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "attribution": null,
+      "modifications": null,
+      "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+    }
+  ]
+}

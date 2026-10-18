@@ -1,0 +1,164 @@
+{
+  "public_id": "mb-318c9fff004b1318",
+  "episode_id": "mb-318c9fff004b1318-64b7e902e8",
+  "task": "Rotated Text OCR",
+  "question": "The figure is a scanned document page that has been rotated counterclockwise by an unknown angle. Rotating the figure further counterclockwise by which of the following angles (in degrees) restores the page to its normal upright reading orientation?\n(A) 53\n(B) 202\n(C) 233\n(D) None of the above restores it.\n\nAnswer with only the correct option letter.",
+  "ground_truth": "D",
+  "final_answer": "D",
+  "termination_reason": "final_answer",
+  "num_steps": 4,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image [img1] shows a scanned document page that has been rotated counterclockwise by some unknown angle. The text is slanted to the left, indicating a counterclockwise rotation. To determine the exact angle needed to rotate it back to its original orientation, I can use the `rotate` tool to test each of the given options and compare the result with the original.\n\nLet's start by rotating the image by 53 degrees counterclockwise and see if it aligns.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 53, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 53
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating the image by 53 degrees counterclockwise, the text is still not aligned to the original orientation. It appears that the rotation was too little. The text is still slanted, but less so than in the original image.\n\nLet's try the next option, 202 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 202, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 202
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating the image by 202 degrees counterclockwise, the text is now rotated in the opposite direction. The document is now oriented such that the top-left corner is pointing more towards the bottom-left, and the text is still not in its original orientation. In fact, it appears that we have over-rotated the image.\n\nLet's try the last option, 233 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 233, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 233
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating the image by 233 degrees counterclockwise, the text is still not in its original orientation. It appears that the rotation is even more extreme than the 202-degree rotation. The document is now oriented such that the top-right corner is pointing more towards the bottom-left, and the text is still slanted.\n\nSince none of the given angles (53, 202, or 233) seem to restore the page to its normal upright reading orientation, the correct answer is (D) None of the above restores it.\n\n<answer> D </answer>",
+      "tool_calls": null,
+      "final_answer": "D",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/c8bd93e752cbc69a0c2e0579.webp",
+      "full_file": "replays/images/c8bd93e752cbc69a0c2e0579-zoom.webp",
+      "thumbnail": "replays/images/c8bd93e752cbc69a0c2e0579-thumb.webp",
+      "width": 978,
+      "height": 1002,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/033033da68236a8a62604617.webp",
+      "full_file": "replays/images/033033da68236a8a62604617-zoom.webp",
+      "thumbnail": "replays/images/033033da68236a8a62604617-thumb.webp",
+      "width": 1390,
+      "height": 1386,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/b55f2e5f333f46f9e8626584.webp",
+      "full_file": "replays/images/b55f2e5f333f46f9e8626584-zoom.webp",
+      "thumbnail": "replays/images/b55f2e5f333f46f9e8626584-thumb.webp",
+      "width": 1284,
+      "height": 1296,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/72cb9614c46ebbc9e9d0fb1a.webp",
+      "full_file": "replays/images/72cb9614c46ebbc9e9d0fb1a-zoom.webp",
+      "thumbnail": "replays/images/72cb9614c46ebbc9e9d0fb1a-thumb.webp",
+      "width": 1390,
+      "height": 1386,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "PubLayNet",
+      "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+      "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "attribution": null,
+      "modifications": null,
+      "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+    }
+  ]
+}

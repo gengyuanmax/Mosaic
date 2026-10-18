@@ -1,0 +1,164 @@
+{
+  "public_id": "mb-72b585521cd6ad8a",
+  "task": "Rotated Text OCR",
+  "question": "The figure is a scanned document page that has been rotated counterclockwise by an unknown angle. Rotating the figure further counterclockwise by which of the following angles (in degrees) restores the page to its normal upright reading orientation?\n(A) 339\n(B) 32\n(C) 212\n(D) None of the above restores it.\n\nAnswer with only the correct option letter.",
+  "ground_truth": "A",
+  "final_answer": "D",
+  "termination_reason": "final_answer",
+  "num_steps": 4,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image [img1] shows a scanned document page that has been rotated counterclockwise by some unknown angle. The text is slanted to the left, and the layout is not aligned with the typical portrait orientation. To determine the exact angle needed to rotate the image further counterclockwise to restore it to its normal orientation, we can use the `rotate` tool to test each of the given options.\n\nLet's start by rotating the image by 339 degrees and see if it aligns.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 339, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 339
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating the image by 339 degrees, the text and layout in [img2] appear to be closer to the original orientation, but it seems like the rotation might have overshot the correct angle. The text is still slightly slanted, and the overall alignment doesn't look perfectly upright.\n\nLet's try the next option, 32 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 32, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 32
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating the image by 32 degrees, the text in [img3] appears to be even more rotated than in the original [img1]. The rotation seems to have gone in the wrong direction or by too little. The text is now slanted to the right, which is the opposite of what we want.\n\nLet's try the third option, 212 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 212, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 212
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating the image by 212 degrees, the text in [img4] appears to be rotated in the opposite direction compared to [img3], but it's still not aligned to the original orientation. The text is now slanted in a different direction, and the layout is still not upright.\n\nSince rotating by 339 degrees, 32 degrees, and 212 degrees did not restore the page to its normal orientation, the correct answer is (D) None of the above restores it.\n\n<answer> D </answer>",
+      "tool_calls": null,
+      "final_answer": "D",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/861703d7e259086cde60b604.webp",
+      "full_file": "replays/images/861703d7e259086cde60b604-zoom.webp",
+      "thumbnail": "replays/images/861703d7e259086cde60b604-thumb.webp",
+      "width": 856,
+      "height": 960,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/6c3698f923e8c7c56b6b400f.webp",
+      "full_file": "replays/images/6c3698f923e8c7c56b6b400f-zoom.webp",
+      "thumbnail": "replays/images/6c3698f923e8c7c56b6b400f-thumb.webp",
+      "width": 1144,
+      "height": 1204,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/074c32f00366c98da9646721.webp",
+      "full_file": "replays/images/074c32f00366c98da9646721-zoom.webp",
+      "thumbnail": "replays/images/074c32f00366c98da9646721-thumb.webp",
+      "width": 1236,
+      "height": 1268,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/217e8f37fcc8d38cab806cf9.webp",
+      "full_file": "replays/images/217e8f37fcc8d38cab806cf9-zoom.webp",
+      "thumbnail": "replays/images/217e8f37fcc8d38cab806cf9-thumb.webp",
+      "width": 1236,
+      "height": 1268,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "PubLayNet",
+      "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+      "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "attribution": null,
+      "modifications": null,
+      "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+    }
+  ],
+  "episode_id": "mb-72b585521cd6ad8a"
+}

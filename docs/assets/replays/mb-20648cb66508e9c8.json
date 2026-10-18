@@ -1,0 +1,84 @@
+{
+  "public_id": "mb-20648cb66508e9c8",
+  "task": "Mirror Sign Reading",
+  "question": "This image is seen in a rear-view mirror, so it is mirrored left-right. It contains one speed-limit sign. What speed limit does the sign actually show?\n(A) 110 km/h\n(B) 100 km/h\n(C) 80 km/h\n(D) 90 km/h\n\nAnswer with only the correct option letter.",
+  "ground_truth": "B",
+  "final_answer": "B",
+  "termination_reason": "final_answer",
+  "num_steps": 2,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image appears to be mirrored left-right, as it is seen in a rear-view mirror. This mirroring affects the orientation of the digits on the speed limit sign. The sign shows \"100\" but due to the mirror effect, the digits appear reversed.\n\nTo determine the actual speed limit, I need to reverse the digits in the image to correct for the mirror effect. I will use a tool to help with this.\n\nLet's reverse the digits in the sign.\n\n<tool_call>\n{\"name\": \"flip\", \"arguments\": {\"mode\": \"horizontal\", \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "flip",
+          "arguments": {
+            "mode": "horizontal"
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "flip",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After flipping the image horizontally, the digits on the sign now appear as \"100\". This reversed view confirms that the speed limit sign shows \"100\" when the mirror effect is accounted for.\n\nTherefore, the correct answer is (B) 100 km/h.\n\n<answer> B </answer>",
+      "tool_calls": null,
+      "final_answer": "B",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/506017daa70100326a245b34.webp",
+      "full_file": "replays/images/506017daa70100326a245b34-zoom.webp",
+      "thumbnail": "replays/images/506017daa70100326a245b34-thumb.webp",
+      "width": 448,
+      "height": 448,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "flip",
+      "file": "replays/images/360db66856db52be2badf643.webp",
+      "full_file": "replays/images/360db66856db52be2badf643-zoom.webp",
+      "thumbnail": "replays/images/360db66856db52be2badf643-thumb.webp",
+      "width": 448,
+      "height": 448,
+      "has_transparency": false
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "TT100K",
+      "source_url": "https://cg.cs.tsinghua.edu.cn/traffic-sign/",
+      "source_license": "CC-BY-NC (upstream does not specify version)",
+      "license_url": "https://cg.cs.tsinghua.edu.cn/traffic-sign/",
+      "attribution": "Zhe Zhu; Dun Liang; Songhai Zhang; Xiaolei Huang; Baoli Li; Shimin Hu; Tsinghua-Tencent 100K",
+      "modifications": "Cropped and horizontally mirrored traffic image; answer derived from source sign label.",
+      "rights_note": "Official dataset grant states CC-BY-NC; retain exact designation and official link, without inventing a version. Add authors, citation and modification notices; noncommercial distribution only."
+    }
+  ],
+  "episode_id": "mb-20648cb66508e9c8"
+}

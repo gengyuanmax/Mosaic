@@ -1,0 +1,164 @@
+{
+  "public_id": "mb-bd813cffff6dcfcf",
+  "task": "Rotated Text OCR",
+  "question": "The figure is a scanned document page that has been rotated counterclockwise by an unknown angle. Rotating the figure further counterclockwise by which of the following angles (in degrees) restores the page to its normal upright reading orientation?\n(A) 232\n(B) 286\n(C) 52\n(D) None of the above restores it.\n\nAnswer with only the correct option letter.",
+  "ground_truth": "C",
+  "final_answer": "C",
+  "termination_reason": "final_answer",
+  "num_steps": 4,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image [img1] shows a scanned document page that has been rotated counterclockwise by some unknown angle. The text is slanted to the left, indicating a counterclockwise rotation. We need to determine by how much more it should be rotated counterclockwise to return it to its original orientation.\n\nTo do this, we can try rotating the image by each of the given options and see which one aligns the text properly. Let's start by rotating the image by 232 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 232, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 232
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating the image by 232 degrees, the text appears to be oriented correctly, but the image is now rotated too far, causing the top and bottom to be reversed. This is not the desired orientation.\n\nLet's try rotating the image by 286 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 286, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 286
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating the image by 286 degrees, the text is even more rotated than before. It appears that we have overshot the correct rotation. This is not the desired orientation either.\n\nLet's try rotating the image by 52 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 52, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 52
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating the image by 52 degrees, the text appears to be in the correct orientation. The lines are aligned horizontally, and the content is readable as it should be in a standard document. This seems to be the correct rotation.\n\nTherefore, the correct answer is (C) 52.\n\n<answer> C </answer>",
+      "tool_calls": null,
+      "final_answer": "C",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/700ceeab195a90d7fc17ed88.webp",
+      "full_file": "replays/images/700ceeab195a90d7fc17ed88-zoom.webp",
+      "thumbnail": "replays/images/700ceeab195a90d7fc17ed88-thumb.webp",
+      "width": 1002,
+      "height": 970,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/99c6d60d9612a05b79094dca.webp",
+      "full_file": "replays/images/99c6d60d9612a05b79094dca-zoom.webp",
+      "thumbnail": "replays/images/99c6d60d9612a05b79094dca-thumb.webp",
+      "width": 1382,
+      "height": 1388,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/4efb6a8cd1526ce4801cc048.webp",
+      "full_file": "replays/images/4efb6a8cd1526ce4801cc048-zoom.webp",
+      "thumbnail": "replays/images/4efb6a8cd1526ce4801cc048-thumb.webp",
+      "width": 1210,
+      "height": 1232,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/ca02196945fe1b7844d93628.webp",
+      "full_file": "replays/images/ca02196945fe1b7844d93628-zoom.webp",
+      "thumbnail": "replays/images/ca02196945fe1b7844d93628-thumb.webp",
+      "width": 1382,
+      "height": 1388,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "PubLayNet",
+      "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+      "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "attribution": null,
+      "modifications": null,
+      "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+    }
+  ],
+  "episode_id": "mb-bd813cffff6dcfcf"
+}

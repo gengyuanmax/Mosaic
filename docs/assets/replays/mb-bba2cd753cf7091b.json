@@ -1,0 +1,164 @@
+{
+  "public_id": "mb-bba2cd753cf7091b",
+  "task": "Rotated Text OCR",
+  "question": "The figure is a scanned document page that has been rotated counterclockwise by an unknown angle. Rotating the figure further counterclockwise by which of the following angles (in degrees) restores the page to its normal upright reading orientation?\n(A) 272\n(B) 92\n(C) 186\n(D) None of the above restores it.\n\nAnswer with only the correct option letter.",
+  "ground_truth": "B",
+  "final_answer": "B",
+  "termination_reason": "final_answer",
+  "num_steps": 4,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image [img1] shows a scanned document page that has been rotated counterclockwise by some unknown angle. The text is slanted to the left, indicating a counterclockwise rotation. To determine the exact angle needed to rotate it back to its original orientation, I can use the `rotate` tool to test each of the given options.\n\nLet's start by rotating the image by 272 degrees and see if it aligns correctly.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 272, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 272
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating the image by 272 degrees, the text in [img2] appears to be further rotated and is not in the correct orientation. It seems that 272 degrees is too much of a rotation. Let's try the next option, 92 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 92, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 92
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating the image by 92 degrees, the text in [img3] appears to be much closer to the original orientation. The lines of text are now aligned vertically, and the content is readable. However, to be sure, I should check if this is indeed the correct angle or if another option might work better. Let's try the third option, 186 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 186, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 186
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating the image by 186 degrees, the text in [img4] appears to be rotated further, and the orientation is worse than in [img3]. The text is now slanted to the right, which is the opposite of what we want.\n\nSince 272 degrees rotated the image too much and 186 degrees rotated it in the wrong direction, and 92 degrees seems to have aligned the text correctly, I can conclude that the correct answer is (B) 92.\n\nTherefore, the answer is B.\n\n<answer> B </answer>",
+      "tool_calls": null,
+      "final_answer": "B",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/a3ef2602d9f8e9b31e3819af.webp",
+      "full_file": "replays/images/a3ef2602d9f8e9b31e3819af-zoom.webp",
+      "thumbnail": "replays/images/a3ef2602d9f8e9b31e3819af-thumb.webp",
+      "width": 814,
+      "height": 640,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/fe28a76cd5301a35c640c50f.webp",
+      "full_file": "replays/images/fe28a76cd5301a35c640c50f-zoom.webp",
+      "thumbnail": "replays/images/fe28a76cd5301a35c640c50f-thumb.webp",
+      "width": 670,
+      "height": 836,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/5090c9c4e09c5b574eeb7049.webp",
+      "full_file": "replays/images/5090c9c4e09c5b574eeb7049-zoom.webp",
+      "thumbnail": "replays/images/5090c9c4e09c5b574eeb7049-thumb.webp",
+      "width": 670,
+      "height": 836,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/95b6baa4b1c15af7db3c4bdb.webp",
+      "full_file": "replays/images/95b6baa4b1c15af7db3c4bdb-zoom.webp",
+      "thumbnail": "replays/images/95b6baa4b1c15af7db3c4bdb-thumb.webp",
+      "width": 878,
+      "height": 722,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "PubLayNet",
+      "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+      "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "attribution": null,
+      "modifications": null,
+      "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+    }
+  ],
+  "episode_id": "mb-bba2cd753cf7091b"
+}

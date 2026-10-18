@@ -1,0 +1,164 @@
+{
+  "public_id": "mb-4529068c036c31d0",
+  "episode_id": "mb-4529068c036c31d0-16a651983a",
+  "task": "Rotated Text OCR",
+  "question": "The figure is a scanned document page that has been rotated counterclockwise by an unknown angle. Rotating the figure further counterclockwise by which of the following angles (in degrees) restores the page to its normal upright reading orientation?\n(A) 193\n(B) 234\n(C) 13\n(D) None of the above restores it.\n\nAnswer with only the correct option letter.",
+  "ground_truth": "D",
+  "final_answer": "D",
+  "termination_reason": "final_answer",
+  "num_steps": 4,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "The image [img1] shows a scanned document page that has been rotated counterclockwise by some unknown angle. We need to determine by how much more it should be rotated counterclockwise to return it to its normal orientation.\n\nTo do this, we can try rotating the image by each of the given options and see which one aligns it properly. Let's start by rotating it by 193 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 193, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 193
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0002"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating the image by 193 degrees, the text is still not aligned properly. It appears that the rotation was too much, as the text is now oriented in the opposite direction (i.e., it's rotated further than needed).\n\nLet's try the next option, 234 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 234, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 234
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_raw_response": "After rotating the image by 234 degrees, the text is still not in the correct orientation. It appears that the rotation is even further than before, making the text more upside down.\n\nLet's try the last option, 13 degrees.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 13, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 13
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0004"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "model_raw_response": "After rotating the image by 13 degrees, the text is closer to being aligned properly than in the previous two attempts, but it is still not in the correct orientation. The text is still slightly rotated.\n\nSince none of the given angles (193, 234, or 13) seem to restore the page to its normal orientation, the correct answer is (D) None of the above restores it.\n\n<answer> D </answer>",
+      "tool_calls": null,
+      "final_answer": "D",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/5167d48ecec99c2bbe88ca95.webp",
+      "full_file": "replays/images/5167d48ecec99c2bbe88ca95-zoom.webp",
+      "thumbnail": "replays/images/5167d48ecec99c2bbe88ca95-thumb.webp",
+      "width": 804,
+      "height": 626,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/3386b22b68d4c26df673fefa.webp",
+      "full_file": "replays/images/3386b22b68d4c26df673fefa-zoom.webp",
+      "thumbnail": "replays/images/3386b22b68d4c26df673fefa-thumb.webp",
+      "width": 926,
+      "height": 792,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/6be3307810349769674560e4.webp",
+      "full_file": "replays/images/6be3307810349769674560e4-zoom.webp",
+      "thumbnail": "replays/images/6be3307810349769674560e4-thumb.webp",
+      "width": 980,
+      "height": 1020,
+      "has_transparency": true
+    },
+    {
+      "id": "img_0004",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/e67b5327a76a7852a937419e.webp",
+      "full_file": "replays/images/e67b5327a76a7852a937419e-zoom.webp",
+      "thumbnail": "replays/images/e67b5327a76a7852a937419e-thumb.webp",
+      "width": 926,
+      "height": 792,
+      "has_transparency": true
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "PubLayNet",
+      "source_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "source_license": "annotations CDLA-Permissive-1.0; images article-specific",
+      "license_url": "https://raw.githubusercontent.com/ibm-aur-nlp/PubLayNet/master/LICENSE.md",
+      "attribution": null,
+      "modifications": null,
+      "rights_note": "Official CDLA grant covers annotations only. Numeric page IDs do not identify article copyright or third-party illustration rights."
+    }
+  ]
+}

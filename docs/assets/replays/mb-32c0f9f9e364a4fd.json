@@ -1,0 +1,95 @@
+{
+  "public_id": "mb-32c0f9f9e364a4fd",
+  "task": "Assembly Orientation Alignment",
+  "question": "Figure 1 shows a part lying on the workbench; figure 2 shows the orientation the assembly instructions require for the SAME part. Rotating figure 1 counterclockwise by which angle brings it into the required orientation?\n(A) 270°\n(B) 30°\n(C) 90°\n(D) 150°\n\nAnswer with only the correct option letter.",
+  "ground_truth": "C",
+  "final_answer": "C",
+  "termination_reason": "final_answer",
+  "num_steps": 2,
+  "rounds": [
+    {
+      "step": 1,
+      "model_raw_response": "To determine the angle by which [img1] needs to be rotated counterclockwise to match [img2], I need to analyze the orientation of the screw in both images.\n\nIn [img1], the screw is oriented horizontally, with the tip on the left and the flat head on the right.\n\nIn [img2], the screw is oriented vertically, with the tip at the bottom and the flat head at the top.\n\nTo find the angle, I can rotate [img1] and compare it with [img2] to find the matching orientation.\n\nLet's try rotating [img1] by 90 degrees counterclockwise.\n\n<tool_call>\n{\"name\": \"rotate\", \"arguments\": {\"angle\": 90, \"target_image\": \"[img1]\"}}\n</tool_call>",
+      "tool_calls": [
+        {
+          "name": "rotate",
+          "arguments": {
+            "angle": 90
+          },
+          "target_images": [
+            "img_0001"
+          ]
+        }
+      ],
+      "final_answer": null,
+      "parse_error": null,
+      "tool_results": [
+        {
+          "tool_name": "rotate",
+          "tool_feedback": "",
+          "new_image_ids": [
+            "img_0003"
+          ],
+          "error": null
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_raw_response": "After rotating [img1] by 90 degrees counterclockwise, the resulting image [img3] shows the screw in a vertical orientation with the tip at the bottom and the flat head at the top. This matches the orientation in [img2].\n\nTherefore, the correct answer is (C) 90°.\n\n<answer> C </answer>",
+      "tool_calls": null,
+      "final_answer": "C",
+      "parse_error": null,
+      "tool_results": []
+    }
+  ],
+  "images": [
+    {
+      "id": "img_0001",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/6c82752fb18c9e9b99774a82.webp",
+      "full_file": "replays/images/6c82752fb18c9e9b99774a82-zoom.webp",
+      "thumbnail": "replays/images/6c82752fb18c9e9b99774a82-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0002",
+      "source": [],
+      "tool": null,
+      "file": "replays/images/1c174c1c5d76f928c0c59eb6.webp",
+      "full_file": "replays/images/1c174c1c5d76f928c0c59eb6-zoom.webp",
+      "thumbnail": "replays/images/1c174c1c5d76f928c0c59eb6-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    },
+    {
+      "id": "img_0003",
+      "source": [
+        "img_0001"
+      ],
+      "tool": "rotate",
+      "file": "replays/images/1c174c1c5d76f928c0c59eb6.webp",
+      "full_file": "replays/images/1c174c1c5d76f928c0c59eb6-zoom.webp",
+      "thumbnail": "replays/images/1c174c1c5d76f928c0c59eb6-thumb.webp",
+      "width": 800,
+      "height": 800,
+      "has_transparency": false
+    }
+  ],
+  "credits": [
+    {
+      "source_dataset": "MVTec AD",
+      "source_url": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+      "source_license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "MVTec Software GmbH",
+      "modifications": "Reference image and counterclockwise rotated image with sampled background fill.",
+      "rights_note": "Source grant reviewed; attribution, modification notices and applicable restrictions must accompany release."
+    }
+  ],
+  "episode_id": "mb-32c0f9f9e364a4fd"
+}
