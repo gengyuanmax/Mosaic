@@ -187,4 +187,4 @@ node --test demo/test_homepage_library.mjs demo/test_homepage_interaction.mjs
 
 ## License
 
-Mosaic code uses the [MIT license](LICENSE). Vendored verl retains its [Apache 2.0 license](rl/verl/LICENSE) and attribution. Model and dataset licenses are documented in their respective Hugging Face repositories. Demo images retain their [source-specific licenses and attribution](docs/assets/replays/LICENSE.md).
+Mosaic code uses the [MIT license](LICENSE). Vendored verl retains its [Apache 2.0 license](rl/verl/LICENSE) and attribution. Model and dataset licenses are documented in their respective Hugging Face repositories. Demo images retain their [source-specific licenses and attribution](docs/assets/replays/LICENSE.md). 
